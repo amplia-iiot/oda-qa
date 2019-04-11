@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: es.amplia.oda.dispatcher:opengate:3.15.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/es/amplia/oda/dispatcher/opengate/3.15.1-SNAPSHOT/opengate-3.15.1-20190325.025004-129.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/es/amplia/oda/dispatcher/opengate/3.15.1-SNAPSHOT/opengate-3.15.1-20190325.025004-129-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/es/amplia/oda/dispatcher/opengate/3.15.1-SNAPSHOT/opengate-3.15.1-20190325.025004-129-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

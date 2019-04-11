@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: es.amplia.oda.event:api:3.15.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/es/amplia/oda/event/api/3.15.1-SNAPSHOT/api-3.15.1-20190325.024805-129.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/es/amplia/oda/event/api/3.15.1-SNAPSHOT/api-3.15.1-20190325.024805-129-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/es/amplia/oda/event/api/3.15.1-SNAPSHOT/api-3.15.1-20190325.024805-129-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
