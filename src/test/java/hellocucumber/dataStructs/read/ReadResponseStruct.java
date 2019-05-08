@@ -10,7 +10,7 @@ public class ReadResponseStruct {
 	public ReadResponseStruct() {
 	}
 
-	public ReadResponseStruct(int id, int status, String message, long at, int value) {
+	public ReadResponseStruct(int id, int status, String message, long at, Object value) {
 		this.id = id;
 		this.status = status;
 		this.message = message;

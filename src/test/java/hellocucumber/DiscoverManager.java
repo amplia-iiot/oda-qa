@@ -1,7 +1,5 @@
 package hellocucumber;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.cbor.CBORFactory;
 import hellocucumber.dataStructs.discover.*;
 import javafx.util.Pair;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -12,10 +10,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 class DiscoverManager {
-
-	private static final ObjectMapper MAPPER = new ObjectMapper(new CBORFactory());
-	private static final ObjectMapper MAPPERJSON = new ObjectMapper();
-
 	private static MqttClient manager;
 	private static boolean connected = false;
 
@@ -47,7 +41,7 @@ class DiscoverManager {
 		String toEnable = device + "/" + datastream;
 		if (!actives.contains(toEnable)) {
 			Enable enable = new Enable(mode);
-			manager.publish("oda/enable/" + toEnable, new MqttMessage(serialize(enable)));
+			manager.publish("oda/enable/" + toEnable, new MqttMessage(SerializerCBOR.serialize(enable)));
 			actives.add(toEnable);
 		}
 	}
@@ -55,7 +49,6 @@ class DiscoverManager {
 	static void disable(String device, String datastream) throws MqttException {
 		String toDisable = device + "/" + datastream;
 		if (actives.contains(toDisable)) {
-			//String message = "{}";
 			manager.publish("oda/disable/" + toDisable, new MqttMessage(new byte[0]));
 			actives.remove(toDisable);
 		}
@@ -76,7 +69,7 @@ class DiscoverManager {
 			for (Pair pair: datastreams) {
 				actives.add(device + "/" + pair.getKey());
 			}
-			manager.publish("oda/enable/" + device, new MqttMessage(serialize(multienable)));
+			manager.publish("oda/enable/" + device, new MqttMessage(SerializerCBOR.serialize(multienable)));
 		}
 
 	}
@@ -96,11 +89,7 @@ class DiscoverManager {
 			for (String ds: datastreams) {
 				actives.remove(device + "/" + ds);
 			}
-			manager.publish("oda/disable/" + device, new MqttMessage(serialize(multidisable)));
+			manager.publish("oda/disable/" + device, new MqttMessage(SerializerCBOR.serialize(multidisable)));
 		}
-	}
-
-	private static byte[] serialize(Object value) throws IOException {
-		return MAPPER.writeValueAsBytes(value);
 	}
 }

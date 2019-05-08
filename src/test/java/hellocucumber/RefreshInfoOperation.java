@@ -1,6 +1,5 @@
 package hellocucumber;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -14,35 +13,31 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertTrue;
 
-public class GetOperation {
+public class RefreshInfoOperation {
 
 	private static final String MAINDEVICEID = "testDevice";
-	private MqttClient client = new MqttClient("tcp://localhost", "123456");
-	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDP");
+	private MqttClient client = new MqttClient("tcp://localhost", "refreshClient");
+	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "refreshEDP");
 
 	private boolean responseIsOk;
 	private boolean responseReceived;
-	private int value;
 
 	private String deviceId;
 	private String datastreamId;
+	private String responses;
 
-	public GetOperation() throws MqttException {
-		// This method is unimplemented because we need put a exception for the MqttClient
+	public RefreshInfoOperation() throws MqttException {
 	}
 
-	@Given("id of target device: {string}")
-	public void idOfTargetDevice(String deviceId) {
-		this.deviceId = deviceId;
+	@Given("id of target device to refresh: anotherDevice")
+	public void idOfTargetDeviceToRefreshAnotherDevice() {
+		deviceId = "anotherDevice";
+		datastreamId = "testing";
+		responses = "testIsOk";
 	}
 
-	@And("id of target datastream: {string}")
-	public void idOfTargetDatastream(String datastreamId) {
-		this.datastreamId = datastreamId;
-	}
-
-	@When("I send a request to ODA with required data")
-	public void iSendARequestToODAWithRequiredData() throws MqttException, IOException {
+	@When("I send a request to ODA to refresh the data")
+	public void iSendARequestToODAToRefreshTheData() throws MqttException, IOException {
 		client.connect();
 		EDPSimulator.connect();
 		DiscoverManager.connect();
@@ -52,17 +47,14 @@ public class GetOperation {
 		EDPSimulator.subscribe("oda/operation/read/request/#");
 		responseIsOk = false;
 		responseReceived = false;
-		String temp = "{\"operation\":{\"request\":{\"timestamp\":1554978284595,\"deviceId\":\"" + deviceId + "\",\"name\":\"GET_DEVICE_PARAMETERS\"," +
-				"\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"" + datastreamId +
-				"\"}]}}]," + "\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}";
-		MqttMessage message = new MqttMessage(temp.getBytes());
 		DiscoverManager.enable(deviceId, datastreamId, "RD");
-		client.publish("odm/request/" + MAINDEVICEID, message);
-		value = 33;
+		String temp = "{\"operation\":{\"request\":{\"timestamp\":1557306193823,\"deviceId\":\"" + deviceId + "\",\"" +
+				"name\":\"REFRESH_INFO\",\"parameters\":[],\"id\":\"73da9ff8-15a9-4e9a-9b2d-b6e5efbc856b\"}}}";
+		client.publish("odm/request/" + MAINDEVICEID, new MqttMessage(temp.getBytes()));
 	}
 
-	@Then("I receive the same data that EPC Simulator send to ODA")
-	public void iReceiveTheSameDataThatEPCSimulatorSendToODA() throws InterruptedException, MqttException {
+	@Then("I receive a response of all datastreams and data send to ODA is the same that received by EDP")
+	public void iReceiveAResponseOfAllDatastreamsAndDataSendToODAIsTheSameThatReceivedByEDP() throws InterruptedException, MqttException {
 		for(int i = 0; i < 10 && !responseReceived; i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
@@ -77,10 +69,10 @@ public class GetOperation {
 		@Override
 		public void connectionLost(Throwable throwable) {/* method not used*/}
 		@Override
-		public void messageArrived(String topic, MqttMessage message) throws IOException{
+		public void messageArrived(String topic, MqttMessage message) throws IOException {
 			responseReceived = true;
 			ResponseFormat response = SerializerJSON.deserialize(message.getPayload(), ResponseFormat.class);
-			if(value == (Integer) response.getOperation().getResponse().getSteps().get(0).getResponse().get(0).getVariableValue()) {
+			if(responses.equals(response.getOperation().getResponse().getSteps().get(0).getResponse().get(0).getVariableValue())) {
 				responseIsOk = true;
 			}
 		}
@@ -95,8 +87,9 @@ public class GetOperation {
 		public void messageArrived(String topic, MqttMessage message) throws IOException, MqttException {
 			topic = topic.replaceFirst("request", "response");
 			ReadRequestStruct request = SerializerCBOR.deserialize(message.getPayload(), ReadRequestStruct.class);
-			ReadResponseStruct response = new ReadResponseStruct(request.getId(), 200, "OK", System.currentTimeMillis(), value);
-			EDPSimulator.publish(topic, new MqttMessage(SerializerCBOR.serialize(response)));
+			ReadResponseStruct response = new ReadResponseStruct(request.getId(), 200, "OK", System.currentTimeMillis(), responses);
+			MqttMessage temp = new MqttMessage(SerializerCBOR.serialize(response));
+			EDPSimulator.publish(topic, temp);
 		}
 		@Override
 		public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {/* method not used*/}

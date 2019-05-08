@@ -1,7 +1,5 @@
 package hellocucumber;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.cbor.CBORFactory;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -22,8 +20,6 @@ public class SetOperation {
 	private static final String MAINDEVICEID = "testDevice";
 	private MqttClient client = new MqttClient("tcp://localhost", "ClientSet");
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPSet");
-	private static final com.fasterxml.jackson.databind.ObjectMapper MAPPER = new ObjectMapper(new CBORFactory());
-	private static final ObjectMapper MAPPERJSON = new ObjectMapper();
 	private static final String MESSAGE_COMMUNICATION_SUCCESS = "SUCCESS";
 
 	private boolean requestIsOk;
@@ -106,7 +102,7 @@ public class SetOperation {
 		@Override
 		public void messageArrived(String topic, MqttMessage message) throws IOException {
 			responseReceived = true;
-			ResponseFormat response = deserializeJSON(message.getPayload(), ResponseFormat.class);
+			ResponseFormat response = SerializerJSON.deserialize(message.getPayload(), ResponseFormat.class);
 			if(response.getOperation().getResponse().getSteps().get(0).getResponse().get(0).getResultCode().equals(MESSAGE_COMMUNICATION_SUCCESS)) {
 				responseIsOk = true;
 			}
@@ -121,26 +117,14 @@ public class SetOperation {
 		@Override
 		public void messageArrived(String topic, MqttMessage message) throws IOException, MqttException {
 			topic = topic.replaceFirst("request", "response");
-			WriteRequestStruct request = deserialize(message.getPayload(), WriteRequestStruct.class);
+			WriteRequestStruct request = SerializerCBOR.deserialize(message.getPayload(), WriteRequestStruct.class);
 			WriteResponseStruct response = new WriteResponseStruct(request.getId(), 201, "OK");
 			if(value == ((Double) request.getValue()).intValue())
 				requestIsOk = true;
-			MqttMessage res = new MqttMessage(serialize(response));
+			MqttMessage res = new MqttMessage(SerializerCBOR.serialize(response));
 			EDPSimulator.publish(topic, res);
 		}
 		@Override
 		public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {/* method not used*/}
-	}
-
-	private <T> T deserialize(byte[] value, Class<T> type) throws IOException {
-		return MAPPER.readValue(value, type);
-	}
-
-	private byte[] serialize(Object value) throws IOException {
-		return MAPPER.writeValueAsBytes(value);
-	}
-
-	private <T> T deserializeJSON(byte[] value, Class<T> type) throws IOException {
-		return MAPPERJSON.readValue(value, type);
 	}
 }

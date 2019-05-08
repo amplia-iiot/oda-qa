@@ -23,8 +23,6 @@ public class EventOperation {
 
 	private MqttClient client = new MqttClient("tcp://localhost", "123456");
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDP");
-	private static final ObjectMapper MAPPER = new ObjectMapper(new CBORFactory());
-	private static final ObjectMapper MAPPERJSON = new ObjectMapper();
 
 	private ArrayList<Boolean> responseIsOk = new ArrayList<>();
 	private ArrayList<Boolean> responseReceived = new ArrayList<>();
@@ -62,7 +60,7 @@ public class EventOperation {
 		responseIsOk.add(false);
 		responseReceived.add( false);
 		EventDatapoint dp = new EventDatapoint(System.currentTimeMillis(), values.get(0));
-		MqttMessage message = new MqttMessage(serialize(dp));
+		MqttMessage message = new MqttMessage(SerializerCBOR.serialize(dp));
 		DiscoverManager.enable(deviceId, datastreamIds.get(0), "RW");
 		EDPSimulator.publish("oda/event/" + deviceId + "/" + datastreamIds.get(0), message);
 	}
@@ -114,7 +112,7 @@ public class EventOperation {
 			eventMessage.addDatastream(messageDatastreams);
 		}
 		DiscoverManager.multiEnable(deviceId, enablingDatastreams);
-		MqttMessage message = new MqttMessage(/*temp.toString().getBytes()*/serialize(eventMessage));
+		MqttMessage message = new MqttMessage(SerializerCBOR.serialize(eventMessage));
 		EDPSimulator.publish("oda/event/" + deviceId, message);
 	}
 
@@ -123,7 +121,7 @@ public class EventOperation {
 		public void connectionLost(Throwable throwable) {/* method not used*/}
 		@Override
 		public void messageArrived(String topic, MqttMessage message) throws IOException {
-			EventResponseStruct response = deserializeJSON(message.getPayload(), EventResponseStruct.class);
+			EventResponseStruct response = SerializerJSON.deserialize(message.getPayload(), EventResponseStruct.class);
 			for (int i = 0; i < datastreamIds.size(); i++) {
 				if(response.isDatastream(datastreamIds.get(i))) {
 					responseReceived.set(i, true);
@@ -135,21 +133,5 @@ public class EventOperation {
 		}
 		@Override
 		public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {/* method not used*/}
-	}
-
-	private byte[] serialize(Object value) throws IOException {
-		return MAPPER.writeValueAsBytes(value);
-	}
-
-	private <T> T deserialize(byte[] value, Class<T> type) throws IOException {
-		return MAPPER.readValue(value, type);
-	}
-
-	private <T> T deserializeJSON(byte[] value, Class<T> type) throws IOException {
-		return MAPPERJSON.readValue(value, type);
-	}
-
-	private byte[] serializeJSON(Object value) throws IOException {
-		return MAPPERJSON.writeValueAsBytes(value);
 	}
 }
