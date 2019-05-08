@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 
 public class UnknownOperation {
 
-	private MqttClient client = new MqttClient("tcp://localhost", "123456");
+	/*private MqttClient client = new MqttClient("tcp://localhost", "123456");
 	private MqttMessage message;
 	private boolean responseReceived;
 
@@ -30,13 +30,13 @@ public class UnknownOperation {
 		client.setCallback(new TestCallback());
 		responseReceived = false;
 		client.subscribe("odm/response/#");
-		client.publish("odm/request/opc_test", message);
+		client.publish("odm/request/testDevice", message);
 	}
 
 	@Then("^I receive a error$")
 	public void iReceiveAError() throws MqttException, InterruptedException {
-		for(int i = 0; i < 5 && !responseReceived; i++) {
-			TimeUnit.SECONDS.sleep(1);
+		for(int i = 0; i < 10 && !responseReceived; i++) {
+			TimeUnit.MILLISECONDS.sleep(500);
 		}
 		assertTrue(responseReceived);
 		client.disconnect();
@@ -61,5 +61,5 @@ public class UnknownOperation {
 		public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
 			// method not used
 		}
-	}
+	}*/
 }

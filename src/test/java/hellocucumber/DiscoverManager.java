@@ -1,0 +1,106 @@
+package hellocucumber;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.cbor.CBORFactory;
+import hellocucumber.dataStructs.discover.*;
+import javafx.util.Pair;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+class DiscoverManager {
+
+	private static final ObjectMapper MAPPER = new ObjectMapper(new CBORFactory());
+	private static final ObjectMapper MAPPERJSON = new ObjectMapper();
+
+	private static MqttClient manager;
+	private static boolean connected = false;
+
+	static {
+		try {
+			manager = new MqttClient("tcp://localhost", "discoverManager");
+		} catch (MqttException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static ArrayList<String> actives = new ArrayList<>();
+
+	static void connect() throws MqttException {
+		if(!connected) {
+			manager.connect();
+			connected = true;
+		}
+	}
+
+	static void disconnect() throws MqttException {
+		if(connected) {
+			manager.disconnect();
+			connected = false;
+		}
+	}
+
+	static void enable(String device, String datastream, String mode) throws MqttException, IOException {
+		String toEnable = device + "/" + datastream;
+		if (!actives.contains(toEnable)) {
+			Enable enable = new Enable(mode);
+			manager.publish("oda/enable/" + toEnable, new MqttMessage(serialize(enable)));
+			actives.add(toEnable);
+		}
+	}
+
+	static void disable(String device, String datastream) throws MqttException {
+		String toDisable = device + "/" + datastream;
+		if (actives.contains(toDisable)) {
+			//String message = "{}";
+			manager.publish("oda/disable/" + toDisable, new MqttMessage(new byte[0]));
+			actives.remove(toDisable);
+		}
+	}
+
+	static void multiEnable(String device, ArrayList<Pair<String, String>> datastreams) throws MqttException, IOException {
+		boolean isOk = true;
+		Multienable multienable = new Multienable();
+		for (Pair pair: datastreams) {
+			if(!actives.contains(device + "/" + pair.getKey())) {
+				multienable.addDatastream(new EnablingDatastreams(pair.getKey().toString(), pair.getValue().toString()));
+			} else {
+				isOk = false;
+			}
+		}
+
+		if(isOk) {
+			for (Pair pair: datastreams) {
+				actives.add(device + "/" + pair.getKey());
+			}
+			manager.publish("oda/enable/" + device, new MqttMessage(serialize(multienable)));
+		}
+
+	}
+
+	static void multiDisable(String device, ArrayList<String> datastreams) throws MqttException, IOException {
+		boolean isOk = true;
+		Multidisable multidisable = new Multidisable();
+		for (String ds: datastreams) {
+			if(actives.contains(device + "/" + ds)) {
+				multidisable.addDatastream(new DisablingDatastreams(ds));
+			} else {
+				isOk = false;
+			}
+		}
+
+		if(isOk) {
+			for (String ds: datastreams) {
+				actives.remove(device + "/" + ds);
+			}
+			manager.publish("oda/disable/" + device, new MqttMessage(serialize(multidisable)));
+		}
+	}
+
+	private static byte[] serialize(Object value) throws IOException {
+		return MAPPER.writeValueAsBytes(value);
+	}
+}

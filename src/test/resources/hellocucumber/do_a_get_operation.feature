@@ -1,7 +1,13 @@
 Feature: Do a get operation
-    I wanna do a get to a datastream
+    I want to do a get operation to a ODA.
 
-    Scenario: I wanna get a data from a device
-        Given a device where I want to get a data
-        When I send a request to get the data
-        Then I receive a data
+    Scenario Outline: I want to get a data from a selected device
+        Given id of target device: "<deviceId>"
+            And id of target datastream: "<datastreamId>"
+        When I send a request to ODA with required data
+        Then I receive the same data that EPC Simulator send to ODA
+        Examples:
+            | deviceId | datastreamId |
+            # Should work well
+            |otroDevice| getDatastream|
+            | otherId  | randomADsId  |
