@@ -16,8 +16,6 @@ import static org.junit.Assert.assertTrue;
 
 public class SetOperation {
 
-
-	private static final String MAINDEVICEID = "testDevice";
 	private MqttClient client = new MqttClient("tcp://localhost", "ClientSet");
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPSet");
 	private static final String MESSAGE_COMMUNICATION_SUCCESS = "SUCCESS";
@@ -49,21 +47,6 @@ public class SetOperation {
 		this.datastreamId = "testDatastream";
 	}
 
-	/*@Given("new value for the datastream: {string}")
-	public void newValueForTheDatastream(String value) {
-		this.value = Integer.parseInt(value);
-	}
-
-	@And("id of target device to write: {string}")
-	public void idOfTargetDeviceToWrite(String deviceId) {
-		this.deviceId = deviceId;
-	}
-
-	@And("id of target datastream to write: {string}")
-	public void idOfTargetDatastreamToWrite(String datastreamId) {
-		this.datastreamId = datastreamId;
-	}*/
-
 	@When("I send a request to ODA to set the data")
 	public void iSendARequestToODAToSetTheData() throws MqttException, IOException {
 		client.connect();
@@ -80,7 +63,7 @@ public class SetOperation {
 				"\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"" + datastreamId +
 				"\",\"variableValue\":" + value + "}]}}],\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}";
 		MqttMessage message = new MqttMessage(temp.getBytes());
-		client.publish("odm/request/" + MAINDEVICEID, message);
+		client.publish("odm/request/" + OdaLocation.MAINDEVICEID, message);
 	}
 
 	@Then("I receive a response and data send to ODA is the same that received by EDP")

@@ -15,7 +15,6 @@ import static org.junit.Assert.assertTrue;
 
 public class DisabledDatastream {
 
-	private static final String MAINDEVICEID = "testDevice";
 	private MqttClient client = new MqttClient("tcp://localhost", "123456");
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDP");
 
@@ -57,7 +56,7 @@ public class DisabledDatastream {
 		MqttMessage message = new MqttMessage(temp.getBytes());
 		DiscoverManager.enable(deviceId, datastreamId, "RD");
 		DiscoverManager.disable(deviceId, datastreamId);
-		client.publish("odm/request/" + MAINDEVICEID, message);
+		client.publish("odm/request/" + OdaLocation.MAINDEVICEID, message);
 	}
 
 	@Then("ODA shouldn't send anything")

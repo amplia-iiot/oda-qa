@@ -15,7 +15,6 @@ import static org.junit.Assert.assertTrue;
 
 public class RefreshInfoOperation {
 
-	private static final String MAINDEVICEID = "testDevice";
 	private MqttClient client = new MqttClient("tcp://localhost", "refreshClient");
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "refreshEDP");
 
@@ -50,7 +49,7 @@ public class RefreshInfoOperation {
 		DiscoverManager.enable(deviceId, datastreamId, "RD");
 		String temp = "{\"operation\":{\"request\":{\"timestamp\":1557306193823,\"deviceId\":\"" + deviceId + "\",\"" +
 				"name\":\"REFRESH_INFO\",\"parameters\":[],\"id\":\"73da9ff8-15a9-4e9a-9b2d-b6e5efbc856b\"}}}";
-		client.publish("odm/request/" + MAINDEVICEID, new MqttMessage(temp.getBytes()));
+		client.publish("odm/request/" + OdaLocation.MAINDEVICEID, new MqttMessage(temp.getBytes()));
 	}
 
 	@Then("I receive a response of all datastreams and data send to ODA is the same that received by EDP")

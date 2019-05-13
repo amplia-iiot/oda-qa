@@ -16,7 +16,6 @@ import static org.junit.Assert.assertTrue;
 
 public class GetOperation {
 
-	private static final String MAINDEVICEID = "testDevice";
 	private MqttClient client = new MqttClient("tcp://localhost", "123456");
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDP");
 
@@ -43,22 +42,25 @@ public class GetOperation {
 
 	@When("I send a request to ODA with required data")
 	public void iSendARequestToODAWithRequiredData() throws MqttException, IOException {
-		client.connect();
-		EDPSimulator.connect();
+		this.client.connect();
+		this.EDPSimulator.connect();
 		DiscoverManager.connect();
-		client.setCallback(new TestCallback());
-		EDPSimulator.setCallback(new EDPCallback());
-		client.subscribe("odm/response/#");
-		EDPSimulator.subscribe("oda/operation/read/request/#");
-		responseIsOk = false;
-		responseReceived = false;
+
+		this.client.setCallback(new TestCallback());
+		this.EDPSimulator.setCallback(new EDPCallback());
+
+		this.client.subscribe("odm/response/#");
+		this.EDPSimulator.subscribe("oda/operation/read/request/#");
+
+		this.responseIsOk = false;
+		this.responseReceived = false;
+		this.value = 33;
+
+		DiscoverManager.enable(deviceId, datastreamId, "RD");
 		String temp = "{\"operation\":{\"request\":{\"timestamp\":1554978284595,\"deviceId\":\"" + deviceId + "\",\"name\":\"GET_DEVICE_PARAMETERS\"," +
 				"\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"" + datastreamId +
 				"\"}]}}]," + "\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}";
-		MqttMessage message = new MqttMessage(temp.getBytes());
-		DiscoverManager.enable(deviceId, datastreamId, "RD");
-		client.publish("odm/request/" + MAINDEVICEID, message);
-		value = 33;
+		client.publish("odm/request/" + OdaLocation.MAINDEVICEID, new MqttMessage(temp.getBytes()));
 	}
 
 	@Then("I receive the same data that EPC Simulator send to ODA")
