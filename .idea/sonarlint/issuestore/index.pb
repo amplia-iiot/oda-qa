@@ -35,8 +35,6 @@ s
 Csrc/test/java/hellocucumber/dataStructs/general/ResponseFormat.java,8/3/83085dfcb65ff762ef07752afeceb8ebbc582ee9
 i
 9src/test/java/hellocucumber/dataStructs/general/Resp.java,7/7/777b5892d4af68f960386d4d19aaca30b11c223c
-n
->src/test/java/hellocucumber/es.amplia.oda.datastreams.mqtt.cfg,8/e/8edccada5c67b4fb89e4e50cf75340f9b3e362ab
 x
 Hsrc/test/java/hellocucumber/dataStructs/update/UpdateResponseStruct.java,1/0/106559b94491f2fd3311679935a6eb28f00f8a09
 m

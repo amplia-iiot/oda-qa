@@ -1,4 +1,4 @@
-package hellocucumber;
+package hellocucumber.discover;
 
 import hellocucumber.dataStructs.discover.*;
 import hellocucumber.serializer.SerializerCBOR;
@@ -10,7 +10,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-class DiscoverManager {
+public class DiscoverManager {
 	private static MqttClient manager;
 	private static boolean connected = false;
 
@@ -24,21 +24,21 @@ class DiscoverManager {
 
 	private static ArrayList<String> actives = new ArrayList<>();
 
-	static void connect() throws MqttException {
+	public static void connect() throws MqttException {
 		if(!connected) {
 			manager.connect();
 			connected = true;
 		}
 	}
 
-	static void disconnect() throws MqttException {
+	public static void disconnect() throws MqttException {
 		if(connected) {
 			manager.disconnect();
 			connected = false;
 		}
 	}
 
-	static void enable(String device, String datastream, String mode) throws MqttException, IOException {
+	public static void enable(String device, String datastream, String mode) throws MqttException, IOException {
 		String toEnable = device + "/" + datastream;
 		if (!actives.contains(toEnable)) {
 			Enable enable = new Enable(mode);
@@ -47,7 +47,7 @@ class DiscoverManager {
 		}
 	}
 
-	static void disable(String device, String datastream) throws MqttException {
+	public static void disable(String device, String datastream) throws MqttException {
 		String toDisable = device + "/" + datastream;
 		if (actives.contains(toDisable)) {
 			manager.publish("oda/disable/" + toDisable, new MqttMessage(new byte[0]));
@@ -55,7 +55,7 @@ class DiscoverManager {
 		}
 	}
 
-	static void multiEnable(String device, ArrayList<Pair<String, String>> datastreams) throws MqttException, IOException {
+	public static void multiEnable(String device, ArrayList<Pair<String, String>> datastreams) throws MqttException, IOException {
 		boolean isOk = true;
 		Multienable multienable = new Multienable();
 		for (Pair pair: datastreams) {
@@ -75,7 +75,7 @@ class DiscoverManager {
 
 	}
 
-	static void multiDisable(String device, ArrayList<String> datastreams) throws MqttException, IOException {
+	public static void multiDisable(String device, ArrayList<String> datastreams) throws MqttException, IOException {
 		boolean isOk = true;
 		Multidisable multidisable = new Multidisable();
 		for (String ds: datastreams) {

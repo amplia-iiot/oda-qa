@@ -6,6 +6,10 @@ import cucumber.api.java.en.When;
 import hellocucumber.dataStructs.general.ResponseFormat;
 import hellocucumber.dataStructs.read.ReadRequestStruct;
 import hellocucumber.dataStructs.read.ReadResponseStruct;
+import hellocucumber.discover.DiscoverManager;
+import hellocucumber.http.OdaLocation;
+import hellocucumber.serializer.SerializerCBOR;
+import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
 
 import java.io.IOException;

@@ -8,6 +8,9 @@ import hellocucumber.dataStructs.event.EventDatapoint;
 import hellocucumber.dataStructs.event.EventMessage;
 import hellocucumber.dataStructs.event.EventResponseStruct;
 import hellocucumber.dataStructs.event.MessageDatastreams;
+import hellocucumber.discover.DiscoverManager;
+import hellocucumber.serializer.SerializerCBOR;
+import hellocucumber.serializer.SerializerJSON;
 import javafx.util.Pair;
 import org.eclipse.paho.client.mqttv3.*;
 

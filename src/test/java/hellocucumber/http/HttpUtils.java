@@ -1,4 +1,4 @@
-package hellocucumber;
+package hellocucumber.http;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

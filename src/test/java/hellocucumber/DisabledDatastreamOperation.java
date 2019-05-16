@@ -5,6 +5,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import hellocucumber.dataStructs.general.ResponseFormat;
+import hellocucumber.discover.DiscoverManager;
+import hellocucumber.http.OdaLocation;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
 
@@ -14,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class DisabledDatastream {
+public class DisabledDatastreamOperation {
 
 	private MqttClient client = new MqttClient("tcp://localhost", "123456");
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDP");
@@ -26,7 +28,7 @@ public class DisabledDatastream {
 	private String deviceId;
 	private String datastreamId;
 
-	public DisabledDatastream() throws MqttException {
+	public DisabledDatastreamOperation() throws MqttException {
 		// This method is unimplemented because we need put a exception for the MqttClient
 	}
 

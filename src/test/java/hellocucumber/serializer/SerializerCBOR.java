@@ -1,4 +1,4 @@
-package hellocucumber;
+package hellocucumber.serializer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.cbor.CBORFactory;

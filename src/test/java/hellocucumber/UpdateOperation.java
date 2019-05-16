@@ -6,6 +6,11 @@ import com.sun.net.httpserver.HttpServer;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import hellocucumber.dataStructs.update.UpdateResponseStruct;
+import hellocucumber.http.HttpUtils;
+import hellocucumber.http.OdaLocation;
+import hellocucumber.jsch.CopyFile;
+import hellocucumber.serializer.SerializerJSON;
+import org.apache.commons.io.FileUtils;
 import org.eclipse.paho.client.mqttv3.*;
 
 import java.io.*;
@@ -52,13 +57,13 @@ public class UpdateOperation {
 		server.setExecutor(null);
 		server.start();
 
+		CopyFile.remoteToLocal(OdaLocation.PATH_CFG, "./src/test/resources/hellocucumber/temp.cfg");
+
 		String temp = "{\"operation\":{\"request\":{\"timestamp\":1557395219834,\"name\":\"UPDATE\",\"parameters\":[{" +
 				"\"name\":\"bundleName\",\"value\":{\"string\":\"oda-smart-energy-test\"}},{\"name\":\"bundleVersion\"," +
 				"\"value\":{\"string\":\"2.0.0\"}},{\"name\":\"deploymentElements\",\"type\":\"string\",\"value\":{" +
 				"\"array\":[{\"name\":\"es.amplia.oda.datastreams.mqtt\",\"version\":\"2.0.0\",\"type\":\"CONFIGURATION" +
-				"\",\"downloadUrl\":\"" +
-				//"http://api.opengate.es/south/bundles/deploymentElement/deviceOda/18ae3bdd-8a0b-4a68-9049-03d2a191fcaf/27766837/es.amplia.oda.datastreams.mqtt_2.0.0.cfg" +
-				"http://localhost:" + PORT_HTTP_SERVER + "/echoGet" +
+				"\",\"downloadUrl\":\"http://localhost:" + PORT_HTTP_SERVER + "/echoGet" +
 				"\",\"path\":\"configuration\",\"order\":1,\"operation\":\"UPGRADE\",\"validators\":[],\"size\":334,\"" +
 				"oldVersion\":\"1.0.0\",\"oldName\":\"es.amplia.oda.datastreams.mqtt\",\"oldPath\":\"configuration\"" +
 				"}]}}],\"id\":\"48589c6e-3d9f-4e59-a066-81f357fb6cf8\"}}}";
@@ -66,12 +71,23 @@ public class UpdateOperation {
 	}
 
 	@Then("the new configuration is the same that the file")
-	public void theNewConfigurationIsTheSameThatTheFile() throws InterruptedException, MqttException {
+	public void theNewConfigurationIsTheSameThatTheFile() throws InterruptedException, MqttException, IOException {
 		for(int i = 0; i < 10 && !responseReceived; i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
+		CopyFile.remoteToLocal(OdaLocation.PATH_CFG, "./src/test/resources/hellocucumber/comparing.cfg");
+		File comparing = new File("./src/test/resources/hellocucumber/comparing.cfg");
+		File temp = new File("./src/test/resources/hellocucumber/temp.cfg");
+		boolean areFileOk =  FileUtils.contentEquals(comparing, new File("./src/test/resources/hellocucumber/es.amplia.oda.datastreams.mqtt.cfg"));
+		boolean deletedTempFiles = false;
+		CopyFile.localToRemote("./src/test/resources/hellocucumber/temp.cfg", OdaLocation.PATH_CFG);
+		if(comparing.delete() && temp.delete()) {
+			deletedTempFiles = true;
+		}
 		server.stop(0);
 		client.disconnect();
+		assertTrue(areFileOk);
+		assertTrue(deletedTempFiles);
 		assertTrue(responseIsOk);
 	}
 
@@ -127,4 +143,6 @@ public class UpdateOperation {
 			/*method not used*/
 		}
 	}
+
+
 }

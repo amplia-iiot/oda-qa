@@ -2,11 +2,9 @@ package hellocucumber.jsch;
 
 import com.jcraft.jsch.*;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.*;
 
-public class copyFile {
+public class CopyFile {
 	public static void localToRemote(String local, String remote) {
 		FileInputStream fis=null;
 		try{
