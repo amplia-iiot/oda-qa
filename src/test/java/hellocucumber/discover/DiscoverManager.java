@@ -1,6 +1,7 @@
 package hellocucumber;
 
 import hellocucumber.dataStructs.discover.*;
+import hellocucumber.serializer.SerializerCBOR;
 import javafx.util.Pair;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
