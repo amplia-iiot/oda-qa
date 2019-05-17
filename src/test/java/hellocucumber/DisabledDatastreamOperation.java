@@ -6,7 +6,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import hellocucumber.dataStructs.general.ResponseFormat;
 import hellocucumber.discover.DiscoverManager;
-import hellocucumber.http.OdaLocation;
+import hellocucumber.http.HttpData;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
 
@@ -59,7 +59,7 @@ public class DisabledDatastreamOperation {
 		MqttMessage message = new MqttMessage(temp.getBytes());
 		DiscoverManager.enable(deviceId, datastreamId, "RD");
 		DiscoverManager.disable(deviceId, datastreamId);
-		client.publish("odm/request/" + OdaLocation.MAINDEVICEID, message);
+		client.publish("odm/request/" + HttpData.MAINDEVICEID, message);
 	}
 
 	@Then("ODA shouldn't send anything")

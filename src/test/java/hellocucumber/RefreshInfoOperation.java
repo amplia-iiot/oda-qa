@@ -7,7 +7,7 @@ import hellocucumber.dataStructs.general.ResponseFormat;
 import hellocucumber.dataStructs.read.ReadRequestStruct;
 import hellocucumber.dataStructs.read.ReadResponseStruct;
 import hellocucumber.discover.DiscoverManager;
-import hellocucumber.http.OdaLocation;
+import hellocucumber.http.HttpData;
 import hellocucumber.serializer.SerializerCBOR;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
@@ -53,7 +53,7 @@ public class RefreshInfoOperation {
 		DiscoverManager.enable(deviceId, datastreamId, "RD");
 		String temp = "{\"operation\":{\"request\":{\"timestamp\":1557306193823,\"deviceId\":\"" + deviceId + "\",\"" +
 				"name\":\"REFRESH_INFO\",\"parameters\":[],\"id\":\"73da9ff8-15a9-4e9a-9b2d-b6e5efbc856b\"}}}";
-		client.publish("odm/request/" + OdaLocation.MAINDEVICEID, new MqttMessage(temp.getBytes()));
+		client.publish("odm/request/" + HttpData.MAINDEVICEID, new MqttMessage(temp.getBytes()));
 	}
 
 	@Then("I receive a response of all datastreams and data send to ODA is the same that received by EDP")

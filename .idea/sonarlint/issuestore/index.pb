@@ -14,14 +14,6 @@ R
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 _
-/src/test/java/hellocucumber/SerializerCBOR.java,6/c/6c035936d5b30bd71a29e9510bd41c14a594e796
-_
-/src/test/java/hellocucumber/SerializerJSON.java,4/2/42060751e92386cf40ea2509548c3fa01de60bee
-c
-3src/test/java/hellocucumber/DisabledDatastream.java,8/2/82c99baabe4f665ebfea4922a0261a2d9b9279be
-`
-0src/test/java/hellocucumber/DiscoverManager.java,1/f/1f219a7d0d6f4a5911247663f9ef2ae268878093
-_
 /src/test/java/hellocucumber/EventOperation.java,d/4/d4674bc197d7cae3e7737d808079ad67535201ba
 e
 5src/test/java/hellocucumber/RefreshInfoOperation.java,b/6/b654f3a37af1c7d4dd5bdd426432b0be0a8477fb

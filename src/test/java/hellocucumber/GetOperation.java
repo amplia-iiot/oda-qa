@@ -8,7 +8,7 @@ import hellocucumber.dataStructs.general.ResponseFormat;
 import hellocucumber.dataStructs.read.ReadRequestStruct;
 import hellocucumber.dataStructs.read.ReadResponseStruct;
 import hellocucumber.discover.DiscoverManager;
-import hellocucumber.http.OdaLocation;
+import hellocucumber.http.HttpData;
 import hellocucumber.serializer.SerializerCBOR;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
@@ -20,8 +20,8 @@ import static org.junit.Assert.assertTrue;
 
 public class GetOperation {
 
-	private MqttClient client = new MqttClient("tcp://localhost", "123456");
-	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDP");
+	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientGetOp");
+	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPGetOp");
 
 	private boolean responseIsOk;
 	private boolean responseReceived;
@@ -64,8 +64,12 @@ public class GetOperation {
 		String temp = "{\"operation\":{\"request\":{\"timestamp\":1554978284595,\"deviceId\":\"" + deviceId + "\",\"name\":\"GET_DEVICE_PARAMETERS\"," +
 				"\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"" + datastreamId +
 				"\"}]}}]," + "\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}";
-		client.publish("odm/request/" + OdaLocation.MAINDEVICEID, new MqttMessage(temp.getBytes()));
+		client.publish("odm/request/" + HttpData.MAINDEVICEID, new MqttMessage(temp.getBytes()));
 	}
+
+	/*
+	"{"operation":{"request":{"timestamp":1554978284595,"deviceId":"deviceId","name":"GET_DEVICE_PARAMETERS","parameters":[{"name":"variableList","value":{"array":[{"variableName":"datastreamId"}]}}],"id":"4aabb9c6-61ec-43ed-b0e4-dabface44b64"}}}";
+	 */
 
 	@Then("I receive the same data that EPC Simulator send to ODA")
 	public void iReceiveTheSameDataThatEPCSimulatorSendToODA() throws InterruptedException, MqttException {

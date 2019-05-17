@@ -5,6 +5,7 @@ import com.jcraft.jsch.UIKeyboardInteractive;
 import javax.swing.*;
 import java.awt.*;
 
+// TODO: Should be auto-input?
 public class MyUserInfo implements com.jcraft.jsch.UserInfo, UIKeyboardInteractive{
 	private String passwd;
 	private JTextField passwordField= new JPasswordField(20);

@@ -8,7 +8,7 @@ import hellocucumber.dataStructs.general.ResponseFormat;
 import hellocucumber.dataStructs.write.WriteRequestStruct;
 import hellocucumber.dataStructs.write.WriteResponseStruct;
 import hellocucumber.discover.DiscoverManager;
-import hellocucumber.http.OdaLocation;
+import hellocucumber.http.HttpData;
 import hellocucumber.serializer.SerializerCBOR;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
@@ -67,7 +67,7 @@ public class SetOperation {
 				"\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"" + datastreamId +
 				"\",\"variableValue\":" + value + "}]}}],\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}";
 		MqttMessage message = new MqttMessage(temp.getBytes());
-		client.publish("odm/request/" + OdaLocation.MAINDEVICEID, message);
+		client.publish("odm/request/" + HttpData.MAINDEVICEID, message);
 	}
 
 	@Then("I receive a response and data send to ODA is the same that received by EDP")

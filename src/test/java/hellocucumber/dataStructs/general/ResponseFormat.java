@@ -35,4 +35,8 @@ public class ResponseFormat {
 	public Object responseValue() {
 		return this.operation.getResponse().getSteps().get(0).getResponse().get(0).getVariableValue();
 	}
+
+	public String resultDescription() {
+		return this.operation.getResponse().getSteps().get(0).getResponse().get(0).getResultDescription();
+	}
 }

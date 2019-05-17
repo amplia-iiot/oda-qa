@@ -5,173 +5,149 @@ import com.jcraft.jsch.*;
 import java.io.*;
 
 public class CopyFile {
-	public static void localToRemote(String local, String remote) {
-		FileInputStream fis=null;
-		try{
-			String user="adrian";
-			String host="localhost";
+	private JSch jsch;
+	private Session session;
+	private UserInfo ui;
 
-			JSch jsch=new JSch();
-			Session session=jsch.getSession(user, host, 22);
-
-			// username and password will be given via UserInfo interface.
-			UserInfo ui=new MyUserInfo();
-			session.setUserInfo(ui);
-			session.connect();
-
-			// exec 'scp -t rfile' remotely
-			remote=remote.replace("'", "'\"'\"'");
-			remote="'"+remote+"'";
-			String command="scp -t "+remote;
-			Channel channel=session.openChannel("exec");
-			((ChannelExec)channel).setCommand(command);
-
-			// get I/O streams for remote scp
-			OutputStream out=channel.getOutputStream();
-			InputStream in=channel.getInputStream();
-
-			channel.connect();
-
-			if(checkAck(in)!=0){
-				System.exit(0);
-			}
-
-			File _lfile = new File(local);
-
-			// send "C0644 filesize filename", where filename should not include '/'
-			long filesize=_lfile.length();
-			command="C0644 "+filesize+" ";
-			if(local.lastIndexOf('/')>0){
-				command+=local.substring(local.lastIndexOf('/')+1);
-			}
-			else{
-				command+=local;
-			}
-			command+="\n";
-			out.write(command.getBytes()); out.flush();
-			if(checkAck(in)!=0){
-				System.exit(0);
-			}
-
-			// send a content of lfile
-			fis=new FileInputStream(local);
-			byte[] buf=new byte[1024];
-			while(true){
-				int len=fis.read(buf, 0, buf.length);
-				if(len<=0) break;
-				out.write(buf, 0, len); //out.flush();
-			}
-			fis.close();
-			fis=null;
-			// send '\0'
-			buf[0]=0; out.write(buf, 0, 1); out.flush();
-			if(checkAck(in)!=0){
-				System.exit(0);
-			}
-			out.close();
-
-			channel.disconnect();
-			session.disconnect();
-		}
-		catch(Exception e){
-			System.out.println(e);
-			try{if(fis!=null)fis.close();}catch(Exception ignored){}
-		}
+	public CopyFile(String username, String host) throws JSchException {
+		this(username, host, 22);
 	}
 
-	public static void remoteToLocal(String remote, String local) {
-		FileOutputStream fos=null;
-		try{
+	public CopyFile(String username, String host, int port) throws JSchException {
+		jsch=new JSch();
+		session=jsch.getSession(username, host, port);
+		ui = new MyUserInfo();
+		session.setUserInfo(ui);
+		session.connect();
+	}
 
-			String user="adrian";
-			String host="localhost";
+	public void localToRemote(String local, String remote) throws IOException, JSchException {
+		FileInputStream fis;
+		// exec 'scp -t rfile' remotely
+		remote=remote.replace("'", "'\"'\"'");
+		remote="'"+remote+"'";
+		String command="scp -t "+remote;
+		Channel channel=session.openChannel("exec");
+		((ChannelExec)channel).setCommand(command);
 
-			JSch jsch=new JSch();
-			Session session=jsch.getSession(user, host, 22);
+		// get I/O streams for remote scp
+		OutputStream out=channel.getOutputStream();
+		InputStream in=channel.getInputStream();
 
-			// username and password will be given via UserInfo interface.
-			UserInfo ui=new MyUserInfo();
-			session.setUserInfo(ui);
-			session.connect();
+		channel.connect();
 
-			// exec 'scp -f rfile' remotely
-			remote=remote.replace("'", "'\"'\"'");
-			remote="'"+remote+"'";
-			String command="scp -f "+remote;
-			Channel channel=session.openChannel("exec");
-			((ChannelExec)channel).setCommand(command);
+		if(checkAck(in)!=0){
+			System.exit(0);
+		}
 
-			// get I/O streams for remote scp
-			OutputStream out=channel.getOutputStream();
-			InputStream in=channel.getInputStream();
+		File _lfile = new File(local);
 
-			channel.connect();
+		// send "C0644 filesize filename", where filename should not include '/'
+		long filesize=_lfile.length();
+		command="C0644 "+filesize+" ";
+		if(local.lastIndexOf('/')>0){
+			command+=local.substring(local.lastIndexOf('/')+1);
+		}
+		else{
+			command+=local;
+		}
+		command+="\n";
+		out.write(command.getBytes()); out.flush();
+		if(checkAck(in)!=0){
+			System.exit(0);
+		}
 
-			byte[] buf=new byte[1024];
+		// send a content of lfile
+		fis=new FileInputStream(local);
+		byte[] buf=new byte[1024];
+		while(true){
+			int len=fis.read(buf, 0, buf.length);
+			if(len<=0) break;
+			out.write(buf, 0, len); //out.flush();
+		}
+		fis.close();
+		// send '\0'
+		buf[0]=0; out.write(buf, 0, 1); out.flush();
+		if(checkAck(in)!=0){
+			System.exit(0);
+		}
+		out.close();
+
+		channel.disconnect();
+	}
+
+	public void remoteToLocal(String remote, String local) throws IOException, JSchException {
+		FileOutputStream fos;
+		// exec 'scp -f rfile' remotely
+		remote=remote.replace("'", "'\"'\"'");
+		remote="'"+remote+"'";
+		String command="scp -f "+remote;
+		Channel channel=session.openChannel("exec");
+		((ChannelExec)channel).setCommand(command);
+
+		// get I/O streams for remote scp
+		OutputStream out=channel.getOutputStream();
+		InputStream in=channel.getInputStream();
+
+		channel.connect();
+
+		byte[] buf=new byte[1024];
+
+		// send '\0'
+		buf[0]=0; out.write(buf, 0, 1); out.flush();
+
+		while(true){
+			int c=checkAck(in);
+			if(c!='C'){
+				break;
+			}
+
+			// read '0644 '
+			in.read(buf, 0, 5);
+
+			long filesize=0L;
+			while(true){
+				if(in.read(buf, 0, 1)<0){
+					// error
+					break;
+				}
+				if(buf[0]==' ')break;
+				filesize=filesize*10L+(long)(buf[0]-'0');
+			}
+
+			for(int i=0;;i++){
+				in.read(buf, i, 1);
+				if(buf[i]==(byte)0x0a){
+					break;
+				}
+			}
 
 			// send '\0'
 			buf[0]=0; out.write(buf, 0, 1); out.flush();
 
+			// read a content of lfile
+			fos=new FileOutputStream(local );
+			int foo;
 			while(true){
-				int c=checkAck(in);
-				if(c!='C'){
+				if(buf.length<filesize) foo=buf.length;
+				else foo=(int)filesize;
+				foo=in.read(buf, 0, foo);
+				if(foo<0){
+					// error
 					break;
 				}
+				fos.write(buf, 0, foo);
+				filesize-=foo;
+				if(filesize==0L) break;
+			}
+			fos.close();
 
-				// read '0644 '
-				in.read(buf, 0, 5);
-
-				long filesize=0L;
-				while(true){
-					if(in.read(buf, 0, 1)<0){
-						// error
-						break;
-					}
-					if(buf[0]==' ')break;
-					filesize=filesize*10L+(long)(buf[0]-'0');
-				}
-
-				for(int i=0;;i++){
-					in.read(buf, i, 1);
-					if(buf[i]==(byte)0x0a){
-						break;
-					}
-				}
-
-				// send '\0'
-				buf[0]=0; out.write(buf, 0, 1); out.flush();
-
-				// read a content of lfile
-				fos=new FileOutputStream(local );
-				int foo;
-				while(true){
-					if(buf.length<filesize) foo=buf.length;
-					else foo=(int)filesize;
-					foo=in.read(buf, 0, foo);
-					if(foo<0){
-						// error
-						break;
-					}
-					fos.write(buf, 0, foo);
-					filesize-=foo;
-					if(filesize==0L) break;
-				}
-				fos.close();
-				fos=null;
-
-				if(checkAck(in)!=0){
-					System.exit(0);
-				}
-
-				// send '\0'
-				buf[0]=0; out.write(buf, 0, 1); out.flush();
+			if(checkAck(in)!=0){
+				System.exit(0);
 			}
 
-			session.disconnect();
-		}
-		catch(Exception e){
-			System.out.println(e);
-			try{if(fos!=null)fos.close();}catch(Exception ignored){}
+			// send '\0'
+			buf[0]=0; out.write(buf, 0, 1); out.flush();
 		}
 	}
 
@@ -200,5 +176,9 @@ public class CopyFile {
 			}
 		}
 		return b;
+	}
+
+	public void disconnect() {
+		this.session.disconnect();
 	}
 }

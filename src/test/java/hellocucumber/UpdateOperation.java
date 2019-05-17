@@ -1,13 +1,15 @@
 package hellocucumber;
 
+import com.jcraft.jsch.JSchException;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import hellocucumber.dataStructs.update.UpdateResponseStruct;
+import hellocucumber.http.HttpData;
 import hellocucumber.http.HttpUtils;
-import hellocucumber.http.OdaLocation;
+import hellocucumber.jsch.JschData;
 import hellocucumber.jsch.CopyFile;
 import hellocucumber.serializer.SerializerJSON;
 import org.apache.commons.io.FileUtils;
@@ -30,6 +32,7 @@ public class UpdateOperation {
 	private static final int PORT_HTTP_SERVER = 9000;
 	private HttpServer server;
 	private static final String PATH_TO_LOCAL_CFG = "./src/test/resources/hellocucumber/es.amplia.oda.datastreams.mqtt.cfg";
+	private CopyFile cf;
 
 	private boolean responseReceived;
 	private boolean responseIsOk;
@@ -39,9 +42,9 @@ public class UpdateOperation {
 	}
 
 	@When("I send a request to ODA to change the configuration")
-	public void iSendARequestToODAToChangeTheConfiguration() throws MqttException, IOException {
+	public void iSendARequestToODAToChangeTheConfiguration() throws MqttException, IOException, JSchException {
 		this.client.connect();
-
+		cf = new CopyFile("adrian", "localhost");
 
 		this.client.setCallback(new TestCallback());
 		this.client.subscribe("odm/response/#");
@@ -57,7 +60,7 @@ public class UpdateOperation {
 		server.setExecutor(null);
 		server.start();
 
-		CopyFile.remoteToLocal(OdaLocation.PATH_CFG, "./src/test/resources/hellocucumber/temp.cfg");
+		cf.remoteToLocal(JschData.PATH_CFG, "./src/test/resources/hellocucumber/temp.cfg");
 
 		String temp = "{\"operation\":{\"request\":{\"timestamp\":1557395219834,\"name\":\"UPDATE\",\"parameters\":[{" +
 				"\"name\":\"bundleName\",\"value\":{\"string\":\"oda-smart-energy-test\"}},{\"name\":\"bundleVersion\"," +
@@ -67,25 +70,26 @@ public class UpdateOperation {
 				"\",\"path\":\"configuration\",\"order\":1,\"operation\":\"UPGRADE\",\"validators\":[],\"size\":334,\"" +
 				"oldVersion\":\"1.0.0\",\"oldName\":\"es.amplia.oda.datastreams.mqtt\",\"oldPath\":\"configuration\"" +
 				"}]}}],\"id\":\"48589c6e-3d9f-4e59-a066-81f357fb6cf8\"}}}";
-		client.publish("odm/request/" + OdaLocation.MAINDEVICEID, new MqttMessage(temp.getBytes()));
+		client.publish("odm/request/" + HttpData.MAINDEVICEID, new MqttMessage(temp.getBytes()));
 	}
 
 	@Then("the new configuration is the same that the file")
-	public void theNewConfigurationIsTheSameThatTheFile() throws InterruptedException, MqttException, IOException {
+	public void theNewConfigurationIsTheSameThatTheFile() throws InterruptedException, MqttException, IOException, JSchException {
 		for(int i = 0; i < 10 && !responseReceived; i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
-		CopyFile.remoteToLocal(OdaLocation.PATH_CFG, "./src/test/resources/hellocucumber/comparing.cfg");
+		cf.remoteToLocal(JschData.PATH_CFG, "./src/test/resources/hellocucumber/comparing.cfg");
 		File comparing = new File("./src/test/resources/hellocucumber/comparing.cfg");
 		File temp = new File("./src/test/resources/hellocucumber/temp.cfg");
 		boolean areFileOk =  FileUtils.contentEquals(comparing, new File("./src/test/resources/hellocucumber/es.amplia.oda.datastreams.mqtt.cfg"));
 		boolean deletedTempFiles = false;
-		CopyFile.localToRemote("./src/test/resources/hellocucumber/temp.cfg", OdaLocation.PATH_CFG);
+		cf.localToRemote("./src/test/resources/hellocucumber/temp.cfg", JschData.PATH_CFG);
 		if(comparing.delete() && temp.delete()) {
 			deletedTempFiles = true;
 		}
 		server.stop(0);
 		client.disconnect();
+		cf.disconnect();
 		assertTrue(areFileOk);
 		assertTrue(deletedTempFiles);
 		assertTrue(responseIsOk);

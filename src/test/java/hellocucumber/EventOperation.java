@@ -22,8 +22,8 @@ import static org.junit.Assert.assertFalse;
 
 public class EventOperation {
 
-	private MqttClient client = new MqttClient("tcp://localhost", "123456");
-	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDP");
+	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientEventOp");
+	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPEventOp");
 
 	private ArrayList<Boolean> responseIsOk = new ArrayList<>();
 	private ArrayList<Boolean> responseReceived = new ArrayList<>();

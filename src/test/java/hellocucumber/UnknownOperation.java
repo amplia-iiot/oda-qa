@@ -3,17 +3,24 @@ package hellocucumber;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.java.mk_latn.No;
+import hellocucumber.dataStructs.unknown.UnknownResponseStruct;
+import hellocucumber.discover.DiscoverManager;
+import hellocucumber.http.HttpData;
+import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertTrue;
 
 public class UnknownOperation {
 
-	/*private MqttClient client = new MqttClient("tcp://localhost", "123456");
+	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientUnknownOp");
 	private MqttMessage message;
 	private boolean responseReceived;
+	private boolean responseIsOk;
 
 	public UnknownOperation() throws MqttException {
 		// This method is unimplemented because we need put a exception for the MqttClient
@@ -21,16 +28,19 @@ public class UnknownOperation {
 
 	@Given("^a mqtt message with a unkown operation$")
 	public void aMqttMessageWithAUnkownOperation() {
-		message = new MqttMessage("{\"operation\":{\"request\":{\"timestamp\":0,\"name\":\"DUMP_OPERATION\"}}}".getBytes());
+		message = new MqttMessage("{\"operation\":{\"request\":{\"timestamp\":1554978284595,\"deviceId\":\"d\",\"name\":\"MET_DEVICE_PARAMETERS\",\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"d\"}]}}],\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}".getBytes());
 	}
 
 	@When("^I send the operation to dispatcher$")
-	public void iSendTheOperationToDispatcher() throws MqttException {
+	public void iSendTheOperationToDispatcher() throws MqttException, IOException {
 		client.connect();
+		DiscoverManager.connect();
 		client.setCallback(new TestCallback());
 		responseReceived = false;
+		responseIsOk = false;
 		client.subscribe("odm/response/#");
-		client.publish("odm/request/testDevice", message);
+		DiscoverManager.enable("device","datastream","RD");
+		client.publish("odm/request/" + HttpData.MAINDEVICEID, message);
 	}
 
 	@Then("^I receive a error$")
@@ -38,8 +48,11 @@ public class UnknownOperation {
 		for(int i = 0; i < 10 && !responseReceived; i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
-		assertTrue(responseReceived);
+		DiscoverManager.disable("device","datastream");
 		client.disconnect();
+		DiscoverManager.disconnect();
+		assertTrue(responseReceived);
+		assertTrue(responseIsOk);
 	}
 
 	public class TestCallback implements MqttCallback {
@@ -50,10 +63,11 @@ public class UnknownOperation {
 		}
 
 		@Override
-		public void messageArrived(String topic, MqttMessage message) {
-			String result = message.toString();
-			if(result.contains("Operation not supported by the device")) {
-				responseReceived = true;
+		public void messageArrived(String topic, MqttMessage message) throws IOException {
+			responseReceived = true;
+			UnknownResponseStruct result = SerializerJSON.deserialize(message.getPayload(), UnknownResponseStruct.class);
+			if(result.resultDescription().equals("Operation not supported by the device")) {
+				responseIsOk = true;
 			}
 		}
 
@@ -61,5 +75,5 @@ public class UnknownOperation {
 		public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
 			// method not used
 		}
-	}*/
+	}
 }
