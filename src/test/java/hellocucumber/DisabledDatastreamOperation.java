@@ -6,7 +6,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import hellocucumber.dataStructs.general.ResponseFormat;
 import hellocucumber.discover.DiscoverManager;
-import hellocucumber.http.HttpData;
+import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
 
@@ -18,8 +18,9 @@ import static org.junit.Assert.assertTrue;
 
 public class DisabledDatastreamOperation {
 
-	private MqttClient client = new MqttClient("tcp://localhost", "123456");
-	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDP");
+	private MqttClient client = new MqttClient("tcp://localhost", "mqttClientDisabledOp");
+	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPDisabledOp");
+	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerDisabledOp");
 
 	private boolean responseIsOk;
 	private boolean responseReceived;
@@ -46,7 +47,7 @@ public class DisabledDatastreamOperation {
 	public void iRequestToReadToODA() throws MqttException, IOException {
 		client.connect();
 		EDPSimulator.connect();
-		DiscoverManager.connect();
+		discoverManager.connect();
 		client.setCallback(new TestCallback());
 		EDPSimulator.setCallback(new EDPCallback());
 		client.subscribe("odm/response/#");
@@ -57,9 +58,9 @@ public class DisabledDatastreamOperation {
 				"\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"" + datastreamId +
 				"\"}]}}]," + "\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}";
 		MqttMessage message = new MqttMessage(temp.getBytes());
-		DiscoverManager.enable(deviceId, datastreamId, "RD");
-		DiscoverManager.disable(deviceId, datastreamId);
-		client.publish("odm/request/" + HttpData.MAINDEVICEID, message);
+		discoverManager.enable(deviceId, datastreamId, "RD");
+		discoverManager.disable(deviceId, datastreamId);
+		client.publish("odm/request/" + DiscoverData.MAINDEVICEID, message);
 	}
 
 	@Then("ODA shouldn't send anything")
@@ -67,10 +68,10 @@ public class DisabledDatastreamOperation {
 		for(int i = 0; i < 10 && !responseReceived; i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
-		DiscoverManager.disable(deviceId, datastreamId);
+		discoverManager.disable(deviceId, datastreamId);
 		client.disconnect();
 		EDPSimulator.disconnect();
-		DiscoverManager.disconnect();
+		discoverManager.disconnect();
 		assertTrue(responseIsOk);
 		assertFalse(EDPReceives);
 	}

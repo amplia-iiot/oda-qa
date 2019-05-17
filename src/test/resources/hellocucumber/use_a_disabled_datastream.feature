@@ -1,7 +1,7 @@
 Feature: Use a disabled datastream
     I want to try to use a disabled datastream.
 
-    @Single
+    @Single @Testing
     Scenario: I want to try to use a disabled datastream
         Given an id of device from are reading data: otherDevice
         And an id of datastream from are reading data: datastreamId

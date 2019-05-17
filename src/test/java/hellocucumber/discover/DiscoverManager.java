@@ -11,34 +11,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DiscoverManager {
-	private static MqttClient manager;
-	private static boolean connected = false;
-
-	static {
-		try {
-			manager = new MqttClient("tcp://localhost", "discoverManager");
-		} catch (MqttException e) {
-			e.printStackTrace();
-		}
-	}
-
+	private MqttClient manager;
+	private boolean connected = false;
 	private static ArrayList<String> actives = new ArrayList<>();
 
-	public static void connect() throws MqttException {
+	public DiscoverManager(String id) throws MqttException {
+		manager = new MqttClient("tcp://localhost", id);
+	}
+
+	public void connect() throws MqttException {
 		if(!connected) {
 			manager.connect();
 			connected = true;
 		}
 	}
 
-	public static void disconnect() throws MqttException {
+	public void disconnect() throws MqttException {
 		if(connected) {
 			manager.disconnect();
 			connected = false;
 		}
 	}
 
-	public static void enable(String device, String datastream, String mode) throws MqttException, IOException {
+	public void enable(String device, String datastream, String mode) throws MqttException, IOException {
 		String toEnable = device + "/" + datastream;
 		if (!actives.contains(toEnable)) {
 			Enable enable = new Enable(mode);
@@ -47,7 +42,7 @@ public class DiscoverManager {
 		}
 	}
 
-	public static void disable(String device, String datastream) throws MqttException {
+	public void disable(String device, String datastream) throws MqttException {
 		String toDisable = device + "/" + datastream;
 		if (actives.contains(toDisable)) {
 			manager.publish("oda/disable/" + toDisable, new MqttMessage(new byte[0]));
@@ -55,7 +50,7 @@ public class DiscoverManager {
 		}
 	}
 
-	public static void multiEnable(String device, ArrayList<Pair<String, String>> datastreams) throws MqttException, IOException {
+	public void multiEnable(String device, ArrayList<Pair<String, String>> datastreams) throws MqttException, IOException {
 		boolean isOk = true;
 		Multienable multienable = new Multienable();
 		for (Pair pair: datastreams) {
@@ -75,7 +70,7 @@ public class DiscoverManager {
 
 	}
 
-	public static void multiDisable(String device, ArrayList<String> datastreams) throws MqttException, IOException {
+	public void multiDisable(String device, ArrayList<String> datastreams) throws MqttException, IOException {
 		boolean isOk = true;
 		Multidisable multidisable = new Multidisable();
 		for (String ds: datastreams) {

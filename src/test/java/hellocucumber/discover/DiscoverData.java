@@ -1,5 +1,5 @@
-package hellocucumber.http;
+package hellocucumber.discover;
 
-public class HttpData {
+public class DiscoverData {
 	public static final String MAINDEVICEID = "testDevice";
 }

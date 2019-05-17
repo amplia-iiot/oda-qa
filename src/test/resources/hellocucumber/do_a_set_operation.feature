@@ -14,7 +14,7 @@ Feature: Write operation
     @Single
     Scenario: I want to set a new value to a value of a datastream
         Given new value for the datastream: 22
-            And id of target device to write: otherDevice
-            And id of target datastream to write: testDatastream
+        Given id of target device to write: counter
+        Given id of target datastream to write: visitors
         When I send a request to ODA to set the data
         Then I receive a response and data send to ODA is the same that received by EDP

@@ -7,7 +7,7 @@ import com.sun.net.httpserver.HttpServer;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import hellocucumber.dataStructs.update.UpdateResponseStruct;
-import hellocucumber.http.HttpData;
+import hellocucumber.discover.DiscoverData;
 import hellocucumber.http.HttpUtils;
 import hellocucumber.jsch.JschData;
 import hellocucumber.jsch.CopyFile;
@@ -70,7 +70,7 @@ public class UpdateOperation {
 				"\",\"path\":\"configuration\",\"order\":1,\"operation\":\"UPGRADE\",\"validators\":[],\"size\":334,\"" +
 				"oldVersion\":\"1.0.0\",\"oldName\":\"es.amplia.oda.datastreams.mqtt\",\"oldPath\":\"configuration\"" +
 				"}]}}],\"id\":\"48589c6e-3d9f-4e59-a066-81f357fb6cf8\"}}}";
-		client.publish("odm/request/" + HttpData.MAINDEVICEID, new MqttMessage(temp.getBytes()));
+		client.publish("odm/request/" + DiscoverData.MAINDEVICEID, new MqttMessage(temp.getBytes()));
 	}
 
 	@Then("the new configuration is the same that the file")

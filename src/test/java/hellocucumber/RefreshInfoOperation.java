@@ -7,7 +7,7 @@ import hellocucumber.dataStructs.general.ResponseFormat;
 import hellocucumber.dataStructs.read.ReadRequestStruct;
 import hellocucumber.dataStructs.read.ReadResponseStruct;
 import hellocucumber.discover.DiscoverManager;
-import hellocucumber.http.HttpData;
+import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerCBOR;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
@@ -21,6 +21,7 @@ public class RefreshInfoOperation {
 
 	private MqttClient client = new MqttClient("tcp://localhost", "refreshClient");
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "refreshEDP");
+	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerRefreshOp");
 
 	private boolean responseIsOk;
 	private boolean responseReceived;
@@ -32,28 +33,36 @@ public class RefreshInfoOperation {
 	public RefreshInfoOperation() throws MqttException {
 	}
 
-	@Given("id of target device to refresh: anotherDevice")
-	public void idOfTargetDeviceToRefreshAnotherDevice() {
-		deviceId = "anotherDevice";
-		datastreamId = "testing";
-		responses = "testIsOk";
+	@Given("id of target device to refresh: {string}")
+	public void idOfTargetDeviceToRefresh(String deviceId) {
+		this.deviceId = deviceId;
+	}
+
+	@Given("id of target datastream to refresh: {string}")
+	public void idOfTargetDatastreamToRefresh(String datastreamId) {
+		this.datastreamId = datastreamId;
+	}
+
+	@Given("data that we will use to test: {string}")
+	public void dataThatWeWillUseToTest(String responses) {
+		this.responses = responses;
 	}
 
 	@When("I send a request to ODA to refresh the data")
 	public void iSendARequestToODAToRefreshTheData() throws MqttException, IOException {
 		client.connect();
 		EDPSimulator.connect();
-		DiscoverManager.connect();
+		discoverManager.connect();
 		client.setCallback(new TestCallback());
 		EDPSimulator.setCallback(new EDPCallback());
 		client.subscribe("odm/response/#");
 		EDPSimulator.subscribe("oda/operation/read/request/#");
 		responseIsOk = false;
 		responseReceived = false;
-		DiscoverManager.enable(deviceId, datastreamId, "RD");
+		discoverManager.enable(deviceId, datastreamId, "RD");
 		String temp = "{\"operation\":{\"request\":{\"timestamp\":1557306193823,\"deviceId\":\"" + deviceId + "\",\"" +
 				"name\":\"REFRESH_INFO\",\"parameters\":[],\"id\":\"73da9ff8-15a9-4e9a-9b2d-b6e5efbc856b\"}}}";
-		client.publish("odm/request/" + HttpData.MAINDEVICEID, new MqttMessage(temp.getBytes()));
+		client.publish("odm/request/" + DiscoverData.MAINDEVICEID, new MqttMessage(temp.getBytes()));
 	}
 
 	@Then("I receive a response of all datastreams and data send to ODA is the same that received by EDP")
@@ -61,10 +70,10 @@ public class RefreshInfoOperation {
 		for(int i = 0; i < 10 && !responseReceived; i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
-		DiscoverManager.disable(deviceId, datastreamId);
+		discoverManager.disable(deviceId, datastreamId);
 		client.disconnect();
 		EDPSimulator.disconnect();
-		DiscoverManager.disconnect();
+		discoverManager.disconnect();
 		assertTrue(responseIsOk);
 	}
 

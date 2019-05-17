@@ -3,10 +3,9 @@ package hellocucumber;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.java.mk_latn.No;
 import hellocucumber.dataStructs.unknown.UnknownResponseStruct;
 import hellocucumber.discover.DiscoverManager;
-import hellocucumber.http.HttpData;
+import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
 
@@ -18,6 +17,8 @@ import static org.junit.Assert.assertTrue;
 public class UnknownOperation {
 
 	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientUnknownOp");
+	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerUnknownOp");
+
 	private MqttMessage message;
 	private boolean responseReceived;
 	private boolean responseIsOk;
@@ -34,13 +35,13 @@ public class UnknownOperation {
 	@When("^I send the operation to dispatcher$")
 	public void iSendTheOperationToDispatcher() throws MqttException, IOException {
 		client.connect();
-		DiscoverManager.connect();
+		discoverManager.connect();
 		client.setCallback(new TestCallback());
 		responseReceived = false;
 		responseIsOk = false;
 		client.subscribe("odm/response/#");
-		DiscoverManager.enable("device","datastream","RD");
-		client.publish("odm/request/" + HttpData.MAINDEVICEID, message);
+		discoverManager.enable("device","datastream","RD");
+		client.publish("odm/request/" + DiscoverData.MAINDEVICEID, message);
 	}
 
 	@Then("^I receive a error$")
@@ -48,9 +49,9 @@ public class UnknownOperation {
 		for(int i = 0; i < 10 && !responseReceived; i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
-		DiscoverManager.disable("device","datastream");
+		discoverManager.disable("device","datastream");
 		client.disconnect();
-		DiscoverManager.disconnect();
+		discoverManager.disconnect();
 		assertTrue(responseReceived);
 		assertTrue(responseIsOk);
 	}

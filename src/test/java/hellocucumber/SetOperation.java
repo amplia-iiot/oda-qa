@@ -8,7 +8,7 @@ import hellocucumber.dataStructs.general.ResponseFormat;
 import hellocucumber.dataStructs.write.WriteRequestStruct;
 import hellocucumber.dataStructs.write.WriteResponseStruct;
 import hellocucumber.discover.DiscoverManager;
-import hellocucumber.http.HttpData;
+import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerCBOR;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
@@ -22,6 +22,7 @@ public class SetOperation {
 
 	private MqttClient client = new MqttClient("tcp://localhost", "ClientSet");
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPSet");
+	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerSetOp");
 	private static final String MESSAGE_COMMUNICATION_SUCCESS = "SUCCESS";
 
 	private boolean requestIsOk;
@@ -36,38 +37,38 @@ public class SetOperation {
 		// This method is unimplemented because we need put a exception for the MqttClient
 	}
 
-	@Given("new value for the datastream: 22")
+	@Given("^new value for the datastream: 22")
 	public void newValueForTheDatastreamValue() {
 		this.value = 22;
 	}
 
-	@And("id of target device to write: otherDevice")
+	@And("id of target device to write: counter")
 	public void idOfTargetDeviceToWriteOtherDevice() {
-		this.deviceId = "otherDevice";
+		this.deviceId = "counter";
 	}
 
-	@And("id of target datastream to write: testDatastream")
+	@And("id of target datastream to write: visitors")
 	public void idOfTargetDatastreamToWriteTestDatastream() {
-		this.datastreamId = "testDatastream";
+		this.datastreamId = "visitors";
 	}
 
 	@When("I send a request to ODA to set the data")
 	public void iSendARequestToODAToSetTheData() throws MqttException, IOException {
 		client.connect();
 		EDPSimulator.connect();
-		DiscoverManager.connect();
+		discoverManager.connect();
 		client.setCallback(new TestCallback());
 		EDPSimulator.setCallback(new EDPCallback());
 		client.subscribe("odm/response/#");
 		EDPSimulator.subscribe("oda/operation/write/request/#");
 		requestIsOk = false;
 		responseReceived = false;
-		DiscoverManager.enable(deviceId, datastreamId, "WR");
+		discoverManager.enable(deviceId, datastreamId, "WR");
 		String temp = "{\"operation\":{\"request\":{\"timestamp\":1554978284595,\"deviceId\":\"" + deviceId + "\",\"name\":\"SET_DEVICE_PARAMETERS\"," +
 				"\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"" + datastreamId +
 				"\",\"variableValue\":" + value + "}]}}],\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}";
 		MqttMessage message = new MqttMessage(temp.getBytes());
-		client.publish("odm/request/" + HttpData.MAINDEVICEID, message);
+		client.publish("odm/request/" + DiscoverData.MAINDEVICEID, message);
 	}
 
 	@Then("I receive a response and data send to ODA is the same that received by EDP")
@@ -75,10 +76,10 @@ public class SetOperation {
 		for(int i = 0; i < 10 && !responseReceived; i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
-		DiscoverManager.disable(deviceId, datastreamId);
+		discoverManager.disable(deviceId, datastreamId);
 		client.disconnect();
 		EDPSimulator.disconnect();
-		DiscoverManager.disconnect();
+		discoverManager.disconnect();
 		assertTrue(requestIsOk);
 		assertTrue(responseIsOk);
 	}

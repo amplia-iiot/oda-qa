@@ -8,7 +8,7 @@ import hellocucumber.dataStructs.general.ResponseFormat;
 import hellocucumber.dataStructs.read.ReadRequestStruct;
 import hellocucumber.dataStructs.read.ReadResponseStruct;
 import hellocucumber.discover.DiscoverManager;
-import hellocucumber.http.HttpData;
+import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerCBOR;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
@@ -22,6 +22,7 @@ public class GetOperation {
 
 	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientGetOp");
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPGetOp");
+	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerGetOp");
 
 	private boolean responseIsOk;
 	private boolean responseReceived;
@@ -48,7 +49,7 @@ public class GetOperation {
 	public void iSendARequestToODAWithRequiredData() throws MqttException, IOException {
 		this.client.connect();
 		this.EDPSimulator.connect();
-		DiscoverManager.connect();
+		discoverManager.connect();
 
 		this.client.setCallback(new TestCallback());
 		this.EDPSimulator.setCallback(new EDPCallback());
@@ -60,11 +61,11 @@ public class GetOperation {
 		this.responseReceived = false;
 		this.value = 33;
 
-		DiscoverManager.enable(deviceId, datastreamId, "RD");
+		discoverManager.enable(deviceId, datastreamId, "RD");
 		String temp = "{\"operation\":{\"request\":{\"timestamp\":1554978284595,\"deviceId\":\"" + deviceId + "\",\"name\":\"GET_DEVICE_PARAMETERS\"," +
 				"\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"" + datastreamId +
 				"\"}]}}]," + "\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}";
-		client.publish("odm/request/" + HttpData.MAINDEVICEID, new MqttMessage(temp.getBytes()));
+		client.publish("odm/request/" + DiscoverData.MAINDEVICEID, new MqttMessage(temp.getBytes()));
 	}
 
 	/*
@@ -76,10 +77,10 @@ public class GetOperation {
 		for(int i = 0; i < 10 && !responseReceived; i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
-		DiscoverManager.disable(deviceId, datastreamId);
+		discoverManager.disable(deviceId, datastreamId);
 		client.disconnect();
 		EDPSimulator.disconnect();
-		DiscoverManager.disconnect();
+		discoverManager.disconnect();
 		assertTrue(responseIsOk);
 	}
 
