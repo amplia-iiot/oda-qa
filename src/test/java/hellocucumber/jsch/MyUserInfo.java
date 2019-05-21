@@ -4,11 +4,10 @@ import com.jcraft.jsch.UIKeyboardInteractive;
 
 import javax.swing.*;
 import java.awt.*;
+import com.jcraft.jsch.UserInfo;
 
-// TODO: Should be auto-input?
-public class MyUserInfo implements com.jcraft.jsch.UserInfo, UIKeyboardInteractive{
+public class MyUserInfo implements UserInfo, UIKeyboardInteractive{
 	private String passwd;
-	private JTextField passwordField= new JPasswordField(20);
 	private final GridBagConstraints gbc =
 			new GridBagConstraints(0,0,1,1,1,1,
 					GridBagConstraints.NORTHWEST,
@@ -17,28 +16,14 @@ public class MyUserInfo implements com.jcraft.jsch.UserInfo, UIKeyboardInteracti
 
 	public String getPassword(){ return passwd; }
 	public boolean promptYesNo(String str){
-		Object[] options={ "yes", "no" };
-		int foo= JOptionPane.showOptionDialog(null,
-				str,
-				"Warning",
-				JOptionPane.DEFAULT_OPTION,
-				JOptionPane.WARNING_MESSAGE,
-				null, options, options[0]);
-		return foo==0;
+		return true;
 	}
 
 	public String getPassphrase(){ return null; }
 	public boolean promptPassphrase(String message){ return true; }
 	public boolean promptPassword(String message){
-		Object[] ob={passwordField};
-		int result=
-				JOptionPane.showConfirmDialog(null, ob, message,
-						JOptionPane.OK_CANCEL_OPTION);
-		if(result==JOptionPane.OK_OPTION){
-			passwd=passwordField.getText();
-			return true;
-		}
-		else{ return false; }
+		this.passwd = JschData.SSH_USER_PASSWORD;
+		return true;
 	}
 	public void showMessage(String message){
 		JOptionPane.showMessageDialog(null, message);

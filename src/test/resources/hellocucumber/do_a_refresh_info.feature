@@ -1,7 +1,6 @@
 Feature: Do a refresh info operation
     I want to gather all info of a device.
 
-    @Single
     Scenario Outline: I want to do a refresh info of a device
         Given id of target device to refresh: "<deviceId>"
         Given id of target datastream to refresh: "<datastreamId>"

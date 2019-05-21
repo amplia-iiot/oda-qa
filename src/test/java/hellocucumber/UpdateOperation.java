@@ -44,7 +44,7 @@ public class UpdateOperation {
 	@When("I send a request to ODA to change the configuration")
 	public void iSendARequestToODAToChangeTheConfiguration() throws MqttException, IOException, JSchException {
 		this.client.connect();
-		cf = new CopyFile("adrian", "localhost");
+		cf = new CopyFile(JschData.SSH_USER_USER, JschData.SSH_USER_IP);
 
 		this.client.setCallback(new TestCallback());
 		this.client.subscribe("odm/response/#");
@@ -66,7 +66,7 @@ public class UpdateOperation {
 				"\"name\":\"bundleName\",\"value\":{\"string\":\"oda-smart-energy-test\"}},{\"name\":\"bundleVersion\"," +
 				"\"value\":{\"string\":\"2.0.0\"}},{\"name\":\"deploymentElements\",\"type\":\"string\",\"value\":{" +
 				"\"array\":[{\"name\":\"es.amplia.oda.datastreams.mqtt\",\"version\":\"2.0.0\",\"type\":\"CONFIGURATION" +
-				"\",\"downloadUrl\":\"http://localhost:" + PORT_HTTP_SERVER + "/echoGet" +
+				"\",\"downloadUrl\":\"http://" + JschData.SSH_SERVER_IP + ":" + PORT_HTTP_SERVER + "/echoGet" +
 				"\",\"path\":\"configuration\",\"order\":1,\"operation\":\"UPGRADE\",\"validators\":[],\"size\":334,\"" +
 				"oldVersion\":\"1.0.0\",\"oldName\":\"es.amplia.oda.datastreams.mqtt\",\"oldPath\":\"configuration\"" +
 				"}]}}],\"id\":\"48589c6e-3d9f-4e59-a066-81f357fb6cf8\"}}}";

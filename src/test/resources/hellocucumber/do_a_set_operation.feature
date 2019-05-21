@@ -11,7 +11,6 @@ Feature: Write operation
     Note 1: # represents each datastream of each device registered.
     Note 2: # represents all the devices.
 
-    @Single
     Scenario: I want to set a new value to a value of a datastream
         Given new value for the datastream: 22
         Given id of target device to write: counter

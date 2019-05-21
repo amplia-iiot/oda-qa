@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertTrue;
 
 public class UnknownOperation {
-
 	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientUnknownOp");
 	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerUnknownOp");
 
@@ -29,7 +28,7 @@ public class UnknownOperation {
 
 	@Given("^a mqtt message with a unkown operation$")
 	public void aMqttMessageWithAUnkownOperation() {
-		message = new MqttMessage("{\"operation\":{\"request\":{\"timestamp\":1554978284595,\"deviceId\":\"d\",\"name\":\"MET_DEVICE_PARAMETERS\",\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"d\"}]}}],\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}".getBytes());
+		message = new MqttMessage(("{\"operation\":{\"request\":{\"timestamp\":1554978284595,\"deviceId\":\"" + DiscoverData.MAINDEVICEID + "\",\"name\":\"MET_DEVICE_PARAMETERS\",\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"d\"}]}}],\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}").getBytes());
 	}
 
 	@When("^I send the operation to dispatcher$")
