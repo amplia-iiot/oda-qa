@@ -7,7 +7,7 @@
 
     <groupId>oda-qa</groupId>
     <artifactId>oda-qa</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>3.17.0</version>
     <packaging>jar</packaging>
 
     <properties>
