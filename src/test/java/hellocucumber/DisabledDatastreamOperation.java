@@ -10,6 +10,7 @@ import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
 
+import javax.naming.ConfigurationException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -21,6 +22,7 @@ public class DisabledDatastreamOperation {
 	private MqttClient client = new MqttClient("tcp://localhost", "mqttClientDisabledOp");
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPDisabledOp");
 	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerDisabledOp");
+	private final DiscoverData discoverData = new DiscoverData();
 
 	private boolean responseIsOk;
 	private boolean responseReceived;
@@ -29,7 +31,7 @@ public class DisabledDatastreamOperation {
 	private String deviceId;
 	private String datastreamId;
 
-	public DisabledDatastreamOperation() throws MqttException {
+	public DisabledDatastreamOperation() throws MqttException, IOException, ConfigurationException {
 		// This method is unimplemented because we need put a exception for the MqttClient
 	}
 
@@ -60,7 +62,7 @@ public class DisabledDatastreamOperation {
 		MqttMessage message = new MqttMessage(temp.getBytes());
 		discoverManager.enable(deviceId, datastreamId, "RD");
 		discoverManager.disable(deviceId, datastreamId);
-		client.publish("odm/request/" + DiscoverData.MAINDEVICEID, message);
+		client.publish("odm/request/" + discoverData.getMAINDEVICEID(), message);
 	}
 
 	@Then("ODA shouldn't send anything")

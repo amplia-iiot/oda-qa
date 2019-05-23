@@ -2,17 +2,24 @@ package hellocucumber.jsch;
 
 import com.jcraft.jsch.UIKeyboardInteractive;
 
+import javax.naming.ConfigurationException;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+
 import com.jcraft.jsch.UserInfo;
 
 public class MyUserInfo implements UserInfo, UIKeyboardInteractive{
 	private String passwd;
+	private final JschData jschData = new JschData();
 	private final GridBagConstraints gbc =
 			new GridBagConstraints(0,0,1,1,1,1,
 					GridBagConstraints.NORTHWEST,
 					GridBagConstraints.NONE,
 					new Insets(0,0,0,0),0,0);
+
+	MyUserInfo() throws IOException, ConfigurationException {
+	}
 
 	public String getPassword(){ return passwd; }
 	public boolean promptYesNo(String str){
@@ -22,7 +29,7 @@ public class MyUserInfo implements UserInfo, UIKeyboardInteractive{
 	public String getPassphrase(){ return null; }
 	public boolean promptPassphrase(String message){ return true; }
 	public boolean promptPassword(String message){
-		this.passwd = JschData.SSH_USER_PASSWORD;
+		this.passwd = jschData.getSSH_USER_PASSWORD();
 		return true;
 	}
 	public void showMessage(String message){

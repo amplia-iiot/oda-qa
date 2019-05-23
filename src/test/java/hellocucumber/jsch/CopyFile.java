@@ -2,6 +2,7 @@ package hellocucumber.jsch;
 
 import com.jcraft.jsch.*;
 
+import javax.naming.ConfigurationException;
 import java.io.*;
 
 public class CopyFile {
@@ -9,11 +10,11 @@ public class CopyFile {
 	private Session session;
 	private UserInfo ui;
 
-	public CopyFile(String username, String host) throws JSchException {
+	public CopyFile(String username, String host) throws JSchException, IOException, ConfigurationException {
 		this(username, host, 22);
 	}
 
-	public CopyFile(String username, String host, int port) throws JSchException {
+	private CopyFile(String username, String host, int port) throws JSchException, IOException, ConfigurationException {
 		jsch=new JSch();
 		session=jsch.getSession(username, host, port);
 		ui = new MyUserInfo();

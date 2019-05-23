@@ -12,6 +12,7 @@ import hellocucumber.serializer.SerializerCBOR;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
 
+import javax.naming.ConfigurationException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -22,6 +23,7 @@ public class RefreshInfoOperation {
 	private MqttClient client = new MqttClient("tcp://localhost", "refreshClient");
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "refreshEDP");
 	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerRefreshOp");
+	private final DiscoverData discoverData = new DiscoverData();
 
 	private boolean responseIsOk;
 	private boolean responseReceived;
@@ -30,7 +32,7 @@ public class RefreshInfoOperation {
 	private String datastreamId;
 	private String responses;
 
-	public RefreshInfoOperation() throws MqttException {
+	public RefreshInfoOperation() throws MqttException, IOException, ConfigurationException {
 	}
 
 	@Given("id of target device to refresh: {string}")
@@ -62,7 +64,7 @@ public class RefreshInfoOperation {
 		discoverManager.enable(deviceId, datastreamId, "RD");
 		String temp = "{\"operation\":{\"request\":{\"timestamp\":1557306193823,\"deviceId\":\"" + deviceId + "\",\"" +
 				"name\":\"REFRESH_INFO\",\"parameters\":[],\"id\":\"73da9ff8-15a9-4e9a-9b2d-b6e5efbc856b\"}}}";
-		client.publish("odm/request/" + DiscoverData.MAINDEVICEID, new MqttMessage(temp.getBytes()));
+		client.publish("odm/request/" + discoverData.getMAINDEVICEID(), new MqttMessage(temp.getBytes()));
 	}
 
 	@Then("I receive a response of all datastreams and data send to ODA is the same that received by EDP")

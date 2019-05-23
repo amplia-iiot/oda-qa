@@ -11,6 +11,7 @@ Feature: Read operation
     Note 1: # represents each datastream of each device registered.
     Note 2: # represents all the devices.
 
+    @Test
     Scenario Outline: I want to get a data from a selected device
         Given id of target device: "<deviceId>"
             And id of target datastream: "<datastreamId>"

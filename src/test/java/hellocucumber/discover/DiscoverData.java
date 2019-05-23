@@ -1,5 +1,23 @@
 package hellocucumber.discover;
 
+import hellocucumber.discover.configuration.ConfigurationHandler;
+
+import javax.naming.ConfigurationException;
+import java.io.IOException;
+
 public class DiscoverData {
-	public static final String MAINDEVICEID = "testDevice";
+	private String MAINDEVICEID;
+
+	public DiscoverData() throws IOException, ConfigurationException {
+		ConfigurationHandler handler = new ConfigurationHandler(this);
+		handler.load();
+	}
+
+	public String getMAINDEVICEID() {
+		return MAINDEVICEID;
+	}
+
+	public void setMAINDEVICEID(String MAINDEVICEID) {
+		this.MAINDEVICEID = MAINDEVICEID;
+	}
 }

@@ -13,6 +13,7 @@ import hellocucumber.serializer.SerializerCBOR;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
 
+import javax.naming.ConfigurationException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -24,6 +25,7 @@ public class SetOperation {
 	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPSet");
 	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerSetOp");
 	private static final String MESSAGE_COMMUNICATION_SUCCESS = "SUCCESS";
+	private final DiscoverData discoverData = new DiscoverData();
 
 	private boolean requestIsOk;
 	private boolean responseReceived;
@@ -33,7 +35,7 @@ public class SetOperation {
 	private String deviceId;
 	private String datastreamId;
 
-	public SetOperation() throws MqttException {
+	public SetOperation() throws MqttException, IOException, ConfigurationException {
 		// This method is unimplemented because we need put a exception for the MqttClient
 	}
 
@@ -68,7 +70,7 @@ public class SetOperation {
 				"\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"" + datastreamId +
 				"\",\"variableValue\":" + value + "}]}}],\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}";
 		MqttMessage message = new MqttMessage(temp.getBytes());
-		client.publish("odm/request/" + DiscoverData.MAINDEVICEID, message);
+		client.publish("odm/request/" + discoverData.getMAINDEVICEID(), message);
 	}
 
 	@Then("I receive a response and data send to ODA is the same that received by EDP")

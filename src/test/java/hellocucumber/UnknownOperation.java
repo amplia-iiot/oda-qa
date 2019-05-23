@@ -9,6 +9,7 @@ import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
 
+import javax.naming.ConfigurationException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -17,18 +18,19 @@ import static org.junit.Assert.assertTrue;
 public class UnknownOperation {
 	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientUnknownOp");
 	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerUnknownOp");
+	private final DiscoverData discoverData = new DiscoverData();
 
 	private MqttMessage message;
 	private boolean responseReceived;
 	private boolean responseIsOk;
 
-	public UnknownOperation() throws MqttException {
+	public UnknownOperation() throws MqttException, IOException, ConfigurationException {
 		// This method is unimplemented because we need put a exception for the MqttClient
 	}
 
 	@Given("^a mqtt message with a unkown operation$")
 	public void aMqttMessageWithAUnkownOperation() {
-		message = new MqttMessage(("{\"operation\":{\"request\":{\"timestamp\":1554978284595,\"deviceId\":\"" + DiscoverData.MAINDEVICEID + "\",\"name\":\"MET_DEVICE_PARAMETERS\",\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"d\"}]}}],\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}").getBytes());
+		message = new MqttMessage(("{\"operation\":{\"request\":{\"timestamp\":1554978284595,\"deviceId\":\"" + discoverData.getMAINDEVICEID() + "\",\"name\":\"MET_DEVICE_PARAMETERS\",\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"d\"}]}}],\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}").getBytes());
 	}
 
 	@When("^I send the operation to dispatcher$")
@@ -40,7 +42,7 @@ public class UnknownOperation {
 		responseIsOk = false;
 		client.subscribe("odm/response/#");
 		discoverManager.enable("device","datastream","RD");
-		client.publish("odm/request/" + DiscoverData.MAINDEVICEID, message);
+		client.publish("odm/request/" + discoverData.getMAINDEVICEID(), message);
 	}
 
 	@Then("^I receive a error$")
