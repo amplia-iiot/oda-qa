@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f72d6a-0698-4c1a-afa4-8ac48746a888" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/PrepareForTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/discover/configuration/ConfigurationHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/configuration/ConfigurationHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/config/DiscoverData.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/config/JschData.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/RunCucumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RunCucumberTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/DisabledDatastreamOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/DisabledDatastreamOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/GetOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/GetOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/RefreshInfoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/RefreshInfoOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/SetOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/SetOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/UnknownOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/UnknownOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/UpdateOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/UpdateOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/discover/DiscoverData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/discover/DiscoverData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/CopyFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/CopyFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/JschData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/JschData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/MyUserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/MyUserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/PrepareForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/PrepareForTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_get_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_get_operation.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_refresh_info.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_refresh_info.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_update_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_update_operation.feature" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,14 +22,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/hellocucumber/UpdateOperation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1071">
-              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="324">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/hellocucumber/PrepareForTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_get_operation.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -118,7 +122,6 @@
         <option value="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_update_operation.feature" />
         <option value="$PROJECT_DIR$/src/test/resources/config/JschData" />
         <option value="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/configuration/JschConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_get_operation.feature" />
         <option value="$PROJECT_DIR$/src/test/java/RunCucumberTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/JschData.java" />
@@ -135,8 +138,9 @@
         <option value="$PROJECT_DIR$/src/test/java/hellocucumber/UpdateOperation.java" />
         <option value="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/configuration/ConfigurationHandler.java" />
         <option value="$PROJECT_DIR$/src/test/java/hellocucumber/Before.java" />
-        <option value="$PROJECT_DIR$/src/test/java/hellocucumber/PrepareForTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/hellocucumber/GetOperation.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_get_operation.feature" />
+        <option value="$PROJECT_DIR$/src/test/java/hellocucumber/PrepareForTest.java" />
       </list>
     </option>
   </component>
@@ -209,11 +213,6 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="hellocucumber" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oda-qa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oda-qa" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -307,7 +306,7 @@
     <frame x="1077" y="25" width="1313" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49563318" visible="true" weight="0.16337806" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49563318" visible="true" weight="0.16337806" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -317,7 +316,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49171272" visible="true" weight="0.29153094" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49171272" visible="true" weight="0.29153094" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
@@ -343,6 +342,12 @@
           <line>496</line>
           <properties />
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/hellocucumber/PrepareForTest.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -402,6 +407,32 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>NetworkInterface.getNetworkInterfaces()</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>java.net.NetworkInterface</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>InetAddress.getLocalHost()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>InetAddress.anyLocalAddress()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>InetAddress.getByAddress(&quot;172.19.17.116&quot;.getBytes())</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>InetAddress.getByAddress(&quot;172.19.17.116&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>JschData.SSH_SERVER_IP</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -418,33 +449,6 @@
       </expression>
       <expression>
         <expression-string>server.getAddress().getHostString()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>cf.session.getHost()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>SerializerCBOR.serialize(enable)</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>hellocucumber.serializer.SerializerJSON</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>SerializerJSON.serialize(enable)</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>hellocucumber.serializer.SerializerJSON</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>result.resultDescription().equals(&quot;Operation not supported by the device&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>result.resultDescription()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -743,13 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_get_operation.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/cucumber/cucumber-core/4.2.6/cucumber-core-4.2.6.jar!/cucumber/runner/TestStep.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -779,16 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="60" selection-start-line="60" selection-end-line="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/hellocucumber/PrepareForTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="60" column="54" lean-forward="true" selection-start-line="60" selection-start-column="54" selection-end-line="60" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -851,8 +838,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/hellocucumber/UpdateOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1071">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="324">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_get_operation.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/hellocucumber/PrepareForTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
