@@ -39,7 +39,7 @@ public class DiscoverManager {
 			Enable enable = new Enable(mode);
 			manager.publish("oda/enable/" + toEnable, new MqttMessage(SerializerCBOR.serialize(enable)));
 			actives.add(toEnable);
-			Thread.sleep(500);
+			Thread.sleep(1000);
 		}
 	}
 
