@@ -7,13 +7,12 @@
 
     <groupId>oda-qa</groupId>
     <artifactId>oda-qa</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>3.17.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
         <cucumber.version>4.2.6</cucumber.version>
         <junit.version>4.12</junit.version>
-        <oda.version>3.15.1-SNAPSHOT</oda.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -36,12 +35,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>es.amplia.oda.connector</groupId>
-            <artifactId>mqtt</artifactId>
-            <version>3.15.1-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>
