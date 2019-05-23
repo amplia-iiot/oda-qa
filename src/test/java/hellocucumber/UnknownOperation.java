@@ -8,6 +8,7 @@ import hellocucumber.discover.DiscoverManager;
 import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import javax.naming.ConfigurationException;
 import java.io.IOException;
@@ -16,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertTrue;
 
 public class UnknownOperation {
-	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientUnknownOp");
+	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientUnknownOp", new MemoryPersistence());
 	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerUnknownOp");
 	private final DiscoverData discoverData = new DiscoverData();
 
@@ -34,7 +35,7 @@ public class UnknownOperation {
 	}
 
 	@When("^I send the operation to dispatcher$")
-	public void iSendTheOperationToDispatcher() throws MqttException, IOException {
+	public void iSendTheOperationToDispatcher() throws MqttException, IOException, InterruptedException {
 		client.connect();
 		discoverManager.connect();
 		client.setCallback(new TestCallback());

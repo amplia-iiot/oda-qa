@@ -12,6 +12,7 @@ import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerCBOR;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import javax.naming.ConfigurationException;
 import java.io.IOException;
@@ -21,8 +22,8 @@ import static org.junit.Assert.assertTrue;
 
 public class SetOperation {
 
-	private MqttClient client = new MqttClient("tcp://localhost", "ClientSet");
-	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPSet");
+	private MqttClient client = new MqttClient("tcp://localhost", "ClientSet", new MemoryPersistence());
+	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPSet", new MemoryPersistence());
 	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerSetOp");
 	private static final String MESSAGE_COMMUNICATION_SUCCESS = "SUCCESS";
 	private final DiscoverData discoverData = new DiscoverData();
@@ -55,7 +56,7 @@ public class SetOperation {
 	}
 
 	@When("I send a request to ODA to set the data")
-	public void iSendARequestToODAToSetTheData() throws MqttException, IOException {
+	public void iSendARequestToODAToSetTheData() throws MqttException, IOException, InterruptedException {
 		client.connect();
 		EDPSimulator.connect();
 		discoverManager.connect();

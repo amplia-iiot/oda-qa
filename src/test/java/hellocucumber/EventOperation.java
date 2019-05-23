@@ -13,6 +13,7 @@ import hellocucumber.serializer.SerializerCBOR;
 import hellocucumber.serializer.SerializerJSON;
 import javafx.util.Pair;
 import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,8 +23,8 @@ import static org.junit.Assert.assertFalse;
 
 public class EventOperation {
 
-	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientEventOp");
-	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPEventOp");
+	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientEventOp", new MemoryPersistence());
+	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPEventOp", new MemoryPersistence());
 	private DiscoverManager discoverManager = new DiscoverManager("discoveryManagerEventOp");
 
 	private ArrayList<Boolean> responseIsOk = new ArrayList<>();
@@ -53,7 +54,7 @@ public class EventOperation {
 	}
 
 	@When("I send a event to ODA")
-	public void iSendAEventToODA() throws MqttException, IOException {
+	public void iSendAEventToODA() throws MqttException, IOException, InterruptedException {
 		client.connect();
 		EDPSimulator.connect();
 		discoverManager.connect();

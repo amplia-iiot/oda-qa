@@ -12,6 +12,7 @@ import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerCBOR;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import javax.naming.ConfigurationException;
 import java.io.*;
@@ -21,8 +22,8 @@ import static org.junit.Assert.assertTrue;
 
 public class GetOperation {
 
-	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientGetOp");
-	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPGetOp");
+	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientGetOp", new MemoryPersistence());
+	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPGetOp", new MemoryPersistence());
 	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerGetOp");
 	private final DiscoverData discoverData = new DiscoverData();
 
@@ -48,7 +49,7 @@ public class GetOperation {
 	}
 
 	@When("I send a request to ODA with required data")
-	public void iSendARequestToODAWithRequiredData() throws MqttException, IOException {
+	public void iSendARequestToODAWithRequiredData() throws MqttException, IOException, InterruptedException {
 		this.client.connect();
 		this.EDPSimulator.connect();
 		discoverManager.connect();

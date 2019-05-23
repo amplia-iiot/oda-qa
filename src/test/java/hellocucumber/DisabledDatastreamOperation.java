@@ -9,6 +9,7 @@ import hellocucumber.discover.DiscoverManager;
 import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import javax.naming.ConfigurationException;
 import java.io.IOException;
@@ -19,8 +20,8 @@ import static org.junit.Assert.assertTrue;
 
 public class DisabledDatastreamOperation {
 
-	private MqttClient client = new MqttClient("tcp://localhost", "mqttClientDisabledOp");
-	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPDisabledOp");
+	private MqttClient client = new MqttClient("tcp://localhost", "mqttClientDisabledOp", new MemoryPersistence());
+	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPDisabledOp", new MemoryPersistence());
 	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerDisabledOp");
 	private final DiscoverData discoverData = new DiscoverData();
 
@@ -46,7 +47,7 @@ public class DisabledDatastreamOperation {
 	}
 
 	@When("I request to read to ODA")
-	public void iRequestToReadToODA() throws MqttException, IOException {
+	public void iRequestToReadToODA() throws MqttException, IOException, InterruptedException {
 		client.connect();
 		EDPSimulator.connect();
 		discoverManager.connect();

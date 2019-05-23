@@ -14,6 +14,7 @@ import hellocucumber.jsch.CopyFile;
 import hellocucumber.serializer.SerializerJSON;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import javax.naming.ConfigurationException;
 import java.io.*;
@@ -28,7 +29,7 @@ import static org.junit.Assert.assertTrue;
 
 public class UpdateOperation {
 
-	private MqttClient client = new MqttClient("tcp://localhost", "ClientSet");
+	private MqttClient client = new MqttClient("tcp://localhost", "ClientSet", new MemoryPersistence());
 	private static final String MESSAGE_COMMUNICATION_SUCCESS = "SUCCESSFUL";
 	private static final int PORT_HTTP_SERVER = 9000;
 	private HttpServer server;

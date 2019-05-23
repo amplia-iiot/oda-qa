@@ -11,6 +11,7 @@ import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerCBOR;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import javax.naming.ConfigurationException;
 import java.io.IOException;
@@ -20,8 +21,8 @@ import static org.junit.Assert.assertTrue;
 
 public class RefreshInfoOperation {
 
-	private MqttClient client = new MqttClient("tcp://localhost", "refreshClient");
-	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "refreshEDP");
+	private MqttClient client = new MqttClient("tcp://localhost", "refreshClient", new MemoryPersistence());
+	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "refreshEDP", new MemoryPersistence());
 	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerRefreshOp");
 	private final DiscoverData discoverData = new DiscoverData();
 
@@ -51,7 +52,7 @@ public class RefreshInfoOperation {
 	}
 
 	@When("I send a request to ODA to refresh the data")
-	public void iSendARequestToODAToRefreshTheData() throws MqttException, IOException {
+	public void iSendARequestToODAToRefreshTheData() throws MqttException, IOException, InterruptedException {
 		client.connect();
 		EDPSimulator.connect();
 		discoverManager.connect();
