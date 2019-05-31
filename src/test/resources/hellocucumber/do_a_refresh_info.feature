@@ -11,6 +11,7 @@ Feature: Refresh info operation
     Note 1: # represents each datastream of each device registered.
     Note 2: # represents all the devices.
 
+    @3.17.0
     Scenario Outline: I want to do a refresh info of a device
         Given id of target device to refresh: "<deviceId>"
         Given id of target datastream to refresh: "<datastreamId>"
