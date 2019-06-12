@@ -33,13 +33,17 @@ public class DiscoverManager {
 		}
 	}
 
+	public boolean isconnected() {
+		return connected;
+	}
+
 	public void enable(String device, String datastream, String mode) throws MqttException, IOException, InterruptedException {
 		String toEnable = device + "/" + datastream;
 		if (!actives.contains(toEnable)) {
 			Enable enable = new Enable(mode);
 			manager.publish("oda/enable/" + toEnable, new MqttMessage(SerializerCBOR.serialize(enable)));
 			actives.add(toEnable);
-			Thread.sleep(500);
+			Thread.sleep(1000);
 		}
 	}
 

@@ -4,7 +4,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import hellocucumber.dataStructs.general.ResponseFormat;
-//import hellocucumber.discover.DiscoverManager;
+import hellocucumber.discover.DiscoverManager;
 import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
@@ -18,7 +18,7 @@ import static org.junit.Assert.assertTrue;
 
 public class UnknownOperation {
 	private MqttClient client = new MqttClient("tcp://localhost", "mqqtClientUnknown", new MemoryPersistence());
-//	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerUnknownOp");
+	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerUnknownOp");
 	private final DiscoverData discoverData = new DiscoverData();
 
 	private MqttMessage message;
@@ -34,15 +34,19 @@ public class UnknownOperation {
 		message = new MqttMessage(("{\"operation\":{\"request\":{\"timestamp\":1554978284595,\"deviceId\":\"edp\",\"name\":\"MET_DEVICE_PARAMETERS\",\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"q\"}]}}],\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}").getBytes());
 	}
 
+	@Given("A started EDP simulator to do an unknown operation")
+	public void aStartedEDPSimulatorToDoAnUnknownOperation() throws MqttException, IOException, InterruptedException {
+		discoverManager.connect();
+		discoverManager.enable("device","datastream","RD");
+	}
+
 	@When("^I send the operation to dispatcher$")
 	public void iSendTheOperationToDispatcher() throws MqttException, IOException, InterruptedException {
 		client.connect();
-//		discoverManager.connect();
 		client.setCallback(new TestCallback());
 		responseReceived = false;
 		responseIsOk = false;
 		client.subscribe("odm/response/#");
-//		discoverManager.enable("device","datastream","RD");
 		client.publish("odm/request/" + discoverData.getMAINDEVICEID(), message);
 	}
 
@@ -51,10 +55,14 @@ public class UnknownOperation {
 		for(int i = 0; i < 10 && !responseReceived; i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
-//		discoverManager.disable("device","datastream");
 		client.disconnect();
-//		discoverManager.disconnect();
 		assertTrue(responseIsOk);
+	}
+
+	@Then("I disconnect the simulator")
+	public void iDisconnectTheSimulator() throws MqttException {
+		discoverManager.disable("device","datastream");
+		discoverManager.disconnect();
 	}
 
 	public class TestCallback implements MqttCallback {

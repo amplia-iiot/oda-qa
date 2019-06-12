@@ -1,7 +1,7 @@
 Feature: Send event operation
     I want to send to ODA an event (as EDP) with a data without it have to request me.
 
-    @3.17.0 @event @edp
+    @3.17.0 @event @simulator
     Scenario Outline: I want to send a simple data to ODA without wait that it request me
         Given a value to send: "<value>"
         And an id of device what are sending data: "<deviceId>"
@@ -12,7 +12,7 @@ Feature: Send event operation
             | deviceId  | datastreamId | value |
             | edp       | q            | 42    |
 
-    @3.17.0 @event @edp
+    @3.17.0 @event @simulator
     Scenario Outline: I want to send various values to ODA
         Given various values to send: 1.0, 2.0, 3.0
         And an id of device what are sending data: "<deviceId>"

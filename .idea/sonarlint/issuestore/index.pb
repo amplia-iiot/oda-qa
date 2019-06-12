@@ -79,3 +79,11 @@ u
 Esrc/test/java/hellocucumber/dataStructs/event/ResponseDatapoints.java,7/8/78d071a4777405b23ef5e344b40565b4cb915f57
 v
 Fsrc/test/java/hellocucumber/dataStructs/event/EventResponseStruct.java,1/1/111615e44d9f7418554bd7c5492d6406603fa699
+y
+Isrc/test/java/hellocucumber/dataStructs/discover/EnablingDatastreams.java,4/f/4fd5b61c81821a2e8c6ced0571c68c6c856fe26b
+r
+Bsrc/test/java/hellocucumber/dataStructs/discover/Multidisable.java,3/e/3e206842acfac0a07e874d0c8b2360cf6051ff8b
+w
+Gsrc/test/java/hellocucumber/dataStructs/update/UpdateRequestStruct.java,4/f/4f5a3f883ac814d3dfa889f7f47b0e905784e783
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
