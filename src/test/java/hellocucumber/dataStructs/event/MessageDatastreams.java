@@ -3,12 +3,12 @@ package hellocucumber.dataStructs.event;
 public class MessageDatastreams {
 	String datastreamId;
 	Long at;
-	String value;
+	Integer value;
 
 	public MessageDatastreams() {
 	}
 
-	public MessageDatastreams(String datastreamId, Long at, String value) {
+	public MessageDatastreams(String datastreamId, Long at, Integer value) {
 		this.datastreamId = datastreamId;
 		this.at = at;
 		this.value = value;
@@ -30,11 +30,11 @@ public class MessageDatastreams {
 		this.at = at;
 	}
 
-	public String getValue() {
+	public Integer getValue() {
 		return value;
 	}
 
-	public void setValue(String value) {
+	public void setValue(Integer value) {
 		this.value = value;
 	}
 }

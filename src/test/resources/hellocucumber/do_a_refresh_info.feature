@@ -11,14 +11,13 @@ Feature: Refresh info operation
     Note 1: # represents each datastream of each device registered.
     Note 2: # represents all the devices.
 
-    @3.17.0
+    @3.17.0 @refresh @edp
     Scenario Outline: I want to do a refresh info of a device
         Given id of target device to refresh: "<deviceId>"
-        Given id of target datastream to refresh: "<datastreamId>"
-        Given data that we will use to test: "<testData>"
+#        Given id of target datastream to refresh: "<datastreamId>"
+#        Given data that we will use to test: "<testData>"
         When I send a request to ODA to refresh the data
         Then I receive a response of all datastreams and data send to ODA is the same that received by EDP
         Examples:
-            | deviceId | datastreamId | testData |
-            |  thermo  | temperature  |  23.5C   |
-            |  clock   |     hour     |  23:50   |
+            | deviceId |
+            |  edp     |

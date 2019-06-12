@@ -89,4 +89,8 @@ public class DiscoverManager {
 			manager.publish("oda/disable/" + device, new MqttMessage(SerializerCBOR.serialize(multidisable)));
 		}
 	}
+
+	public int connectedQuant() {
+		return actives.size();
+	}
 }

@@ -10,7 +10,7 @@ Feature: Update operation
 
     Note 1: # represents all the devices.
 
-    @3.17.0
+    @3.17.0 @update @edp
     Scenario: I want to change one bundle configuration to a new file
         When I send a request to ODA to change the configuration
         Then the new configuration is the same that the file

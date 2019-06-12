@@ -11,10 +11,13 @@ Feature: Write operation
     Note 1: # represents each datastream of each device registered.
     Note 2: # represents all the devices.
 
-    @3.17.0
-    Scenario: I want to set a new value to a value of a datastream
-        Given new value for the datastream: 22
-        Given id of target device to write: counter
-        Given id of target datastream to write: visitors
+    @3.17.0 @set @edp
+    Scenario Outline: I want to set a new value to a value of a datastream
+        Given new value for the datastream: "<value>"
+        Given id of target device to write: "<deviceId>"
+        Given id of target datastream to write: "<datastreamId>"
         When I send a request to ODA to set the data
         Then I receive a response and data send to ODA is the same that received by EDP
+        Examples:
+            | deviceId  |   datastreamId    | value |
+            | edp       |operationNumberCell| 42    |

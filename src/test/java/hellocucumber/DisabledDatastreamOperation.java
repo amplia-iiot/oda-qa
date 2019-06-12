@@ -5,7 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import hellocucumber.dataStructs.general.ResponseFormat;
-import hellocucumber.discover.DiscoverManager;
+//import hellocucumber.discover.DiscoverManager;
 import hellocucumber.discover.DiscoverData;
 import hellocucumber.serializer.SerializerJSON;
 import org.eclipse.paho.client.mqttv3.*;
@@ -21,8 +21,8 @@ import static org.junit.Assert.assertTrue;
 public class DisabledDatastreamOperation {
 
 	private MqttClient client = new MqttClient("tcp://localhost", "mqttClientDisabledOp", new MemoryPersistence());
-	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPDisabledOp", new MemoryPersistence());
-	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerDisabledOp");
+//	private MqttClient EDPSimulator = new MqttClient("tcp://localhost", "EDPDisabledOp", new MemoryPersistence());
+//	private DiscoverManager discoverManager = new DiscoverManager("discoverManagerDisabledOp");
 	private final DiscoverData discoverData = new DiscoverData();
 
 	private boolean responseIsOk;
@@ -36,23 +36,23 @@ public class DisabledDatastreamOperation {
 		// This method is unimplemented because we need put a exception for the MqttClient
 	}
 
-	@Given("an id of device from are reading data: otherDevice")
-	public void anIdOfDeviceFromAreReadingDataOtherDevice() {
-		this.deviceId = "otherDevice";
+	@Given("an id of device from are reading data: {string}")
+	public void anIdOfDeviceFromAreReadingDataOtherDevice(String deviceId) {
+		this.deviceId = deviceId;
 	}
 
-	@And("an id of datastream from are reading data: datastreamId")
-	public void anIdOfDatastreamFromAreReadingDataDatastreamId() {
-		this.datastreamId = "datastreamId";
+	@And("an id of datastream from are reading data: {string}")
+	public void anIdOfDatastreamFromAreReadingDataDatastreamId(String datastreamId) {
+		this.datastreamId = datastreamId;
 	}
 
 	@When("I request to read to ODA")
 	public void iRequestToReadToODA() throws MqttException, IOException, InterruptedException {
 		client.connect();
-		EDPSimulator.connect();
-		discoverManager.connect();
+//		EDPSimulator.connect();
+//		discoverManager.connect();
 		client.setCallback(new TestCallback());
-		EDPSimulator.setCallback(new EDPCallback());
+//		EDPSimulator.setCallback(new EDPCallback());
 		client.subscribe("odm/response/#");
 		responseIsOk = false;
 		responseReceived = false;
@@ -61,8 +61,8 @@ public class DisabledDatastreamOperation {
 				"\"parameters\":[{\"name\":\"variableList\",\"value\":{\"array\":[{\"variableName\":\"" + datastreamId +
 				"\"}]}}]," + "\"id\":\"4aabb9c6-61ec-43ed-b0e4-dabface44b64\"}}}";
 		MqttMessage message = new MqttMessage(temp.getBytes());
-		discoverManager.enable(deviceId, datastreamId, "RD");
-		discoverManager.disable(deviceId, datastreamId);
+//		discoverManager.enable(deviceId, datastreamId, "RD");
+//		discoverManager.disable(deviceId, datastreamId);
 		client.publish("odm/request/" + discoverData.getMAINDEVICEID(), message);
 	}
 
@@ -71,10 +71,10 @@ public class DisabledDatastreamOperation {
 		for(int i = 0; i < 10 && !responseReceived; i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
-		discoverManager.disable(deviceId, datastreamId);
+//		discoverManager.disable(deviceId, datastreamId);
 		client.disconnect();
-		EDPSimulator.disconnect();
-		discoverManager.disconnect();
+//		EDPSimulator.disconnect();
+//		discoverManager.disconnect();
 		assertTrue(responseIsOk);
 		assertFalse(EDPReceives);
 	}
@@ -94,14 +94,14 @@ public class DisabledDatastreamOperation {
 		public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {/* method not used*/}
 	}
 
-	public class EDPCallback implements MqttCallback {
-		@Override
-		public void connectionLost(Throwable throwable) {/* method not used*/}
-		@Override
-		public void messageArrived(String topic, MqttMessage message) {
-			EDPReceives = true;
-		}
-		@Override
-		public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {/* method not used*/}
-	}
+//	public class EDPCallback implements MqttCallback {
+//		@Override
+//		public void connectionLost(Throwable throwable) {/* method not used*/}
+//		@Override
+//		public void messageArrived(String topic, MqttMessage message) {
+//			EDPReceives = true;
+//		}
+//		@Override
+//		public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {/* method not used*/}
+//	}
 }

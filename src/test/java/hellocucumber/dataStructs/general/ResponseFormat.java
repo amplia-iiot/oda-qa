@@ -1,8 +1,10 @@
 package hellocucumber.dataStructs.general;
 
+import hellocucumber.dataStructs.event.ResponseDatastreams;
+
 public class ResponseFormat {
-	private Operation operation;
 	private String version;
+	private Operation operation;
 
 	public ResponseFormat(){}
 
@@ -28,8 +30,12 @@ public class ResponseFormat {
 		this.version = version;
 	}
 
-	public boolean verifyResult() {
-		return this.operation.getResponse().getSteps().get(0).getResponse().get(0).getResultCode().equals("SUCCESS");
+	public boolean verifyResult(String expected) {
+		return this.operation.getResponse().getResultCode().equals(expected);
+	}
+
+	public boolean verifyStepResult(String expected) {
+		return this.operation.getResponse().getSteps().get(0).getResponse().get(0).getResultCode().equals(expected);
 	}
 
 	public Object responseValue() {
@@ -37,6 +43,18 @@ public class ResponseFormat {
 	}
 
 	public String resultDescription() {
+		return this.getOperation().getResponse().getResultDescription();
+	}
+
+	public String resultStepDescription() {
 		return this.operation.getResponse().getSteps().get(0).getResponse().get(0).getResultDescription();
 	}
+
+	/*public boolean isDatastream(String id) {
+		for (ResponseDatastreams ds: datastreams) {
+			if(ds.getId().equals(id))
+				return true;
+		}
+		return false;
+	}*/
 }

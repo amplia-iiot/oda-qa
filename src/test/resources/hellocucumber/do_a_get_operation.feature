@@ -11,13 +11,18 @@ Feature: Read operation
     Note 1: # represents each datastream of each device registered.
     Note 2: # represents all the devices.
 
-    @3.17.0
+    @3.17.0 @get @edp
     Scenario Outline: I want to get a data from a selected device
         Given id of target device: "<deviceId>"
             And id of target datastream: "<datastreamId>"
         When I send a request to ODA with required data
         Then I receive the same data that EPC Simulator send to ODA
         Examples:
-            | deviceId | datastreamId |
-            |otroDevice| getDatastream|
-            | otherId  | randomADsId  |
+            | deviceId  | datastreamId  |
+            | edp       | q             |
+            | edp       | s             |
+            | edp       | smoke         |
+            | edp       |transformerTemp|
+            | edp       | voltage1      |
+            | edp       | voltage2      |
+            | edp       | voltage3      |

@@ -6,6 +6,7 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import hellocucumber.dataStructs.general.ResponseFormat;
 import hellocucumber.dataStructs.update.UpdateResponseStruct;
 import hellocucumber.discover.DiscoverData;
 import hellocucumber.http.HttpUtils;
@@ -106,8 +107,8 @@ public class UpdateOperation {
 		@Override
 		public void messageArrived(String topic, MqttMessage message) throws IOException {
 			responseReceived = true;
-			UpdateResponseStruct response = SerializerJSON.deserialize(message.getPayload(), UpdateResponseStruct.class);
-			if(response.getResultResponse().equals(MESSAGE_COMMUNICATION_SUCCESS)) {
+			ResponseFormat response = SerializerJSON.deserialize(message.getPayload(), ResponseFormat.class);
+			if(response.verifyResult(MESSAGE_COMMUNICATION_SUCCESS)) {
 				responseIsOk = true;
 			}
 		}
