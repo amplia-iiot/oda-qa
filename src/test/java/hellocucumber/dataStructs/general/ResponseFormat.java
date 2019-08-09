@@ -1,7 +1,5 @@
 package hellocucumber.dataStructs.general;
 
-import hellocucumber.dataStructs.event.ResponseDatastreams;
-
 public class ResponseFormat {
 	private String version;
 	private Operation operation;

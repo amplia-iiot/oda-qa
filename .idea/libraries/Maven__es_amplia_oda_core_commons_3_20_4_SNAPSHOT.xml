@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: es.amplia.oda.core:commons:3.20.4-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/es/amplia/oda/core/commons/3.20.4-SNAPSHOT/commons-3.20.4-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/es/amplia/oda/core/commons/3.20.4-SNAPSHOT/commons-3.20.4-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/es/amplia/oda/core/commons/3.20.4-SNAPSHOT/commons-3.20.4-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

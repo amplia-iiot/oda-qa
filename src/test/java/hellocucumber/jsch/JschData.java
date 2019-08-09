@@ -11,6 +11,7 @@ public class JschData {
 	private String SSH_SERVER_IP;
 	private String SSH_USER_PASSWORD;
 	private String SSH_USER_USER;
+	private boolean PREPARE_FOR_TEST;
 
 	public JschData() throws IOException, ConfigurationException {
 		ConfigurationHandler handler = new ConfigurationHandler(this);
@@ -55,5 +56,13 @@ public class JschData {
 
 	public void setSSH_USER_USER(String SSH_USER_USER) {
 		this.SSH_USER_USER = SSH_USER_USER;
+	}
+
+	public boolean getPREPARE_FOR_TEST() {
+		return PREPARE_FOR_TEST;
+	}
+
+	public void setPREPARE_FOR_TEST(String PREPARE_FOR_TEST) {
+		this.PREPARE_FOR_TEST = PREPARE_FOR_TEST.equals("true");
 	}
 }

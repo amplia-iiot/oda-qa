@@ -14,6 +14,7 @@ public class ConfigurationHandler {
 	private static final String SSH_USER_IP_PROPERTY_NAME = "SSH_USER_IP";
 	private static final String SSH_USER_USER_PROPERTY_NAME = "SSH_USER_USER";
 	private static final String SSH_USER_PASSWORD_PROPERTY_NAME = "SSH_USER_PASSWORD";
+	private static final String PREPARE_FOR_TEST_PROPERTY_NAME = "PREPARE_FOR_TEST";
 
 	private JschData data;
 
@@ -51,6 +52,7 @@ public class ConfigurationHandler {
 		data.setSSH_SERVER_IP(ip);
 		data.setSSH_USER_USER(props.get(SSH_USER_USER_PROPERTY_NAME));
 		data.setSSH_USER_PASSWORD(props.get(SSH_USER_PASSWORD_PROPERTY_NAME));
+		data.setPREPARE_FOR_TEST(props.get(PREPARE_FOR_TEST_PROPERTY_NAME));
 
 		if(data.getPATH_CFG() == null || data.getSSH_USER_IP() == null || data.getSSH_SERVER_IP() == null ||
 				data.getSSH_USER_USER() == null || data.getSSH_USER_PASSWORD() == null) {
