@@ -1,9 +1,9 @@
 import cucumber.api.java.en.Then;
-import hellocucumber.dataStructs.discover.Enable;
-import hellocucumber.dataStructs.general.ResponseFormat;
-import hellocucumber.dataStructs.read.ReadRequestStruct;
-import hellocucumber.dataStructs.read.ReadResponseStruct;
-import hellocucumber.serializer.SerializerCBOR;
+import tests.dataStructs.discover.Enable;
+import tests.dataStructs.general.ResponseFormat;
+import tests.dataStructs.read.ReadRequestStruct;
+import tests.dataStructs.read.ReadResponseStruct;
+import tests.serializer.SerializerCBOR;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 

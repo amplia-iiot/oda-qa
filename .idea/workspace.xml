@@ -2,97 +2,96 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f72d6a-0698-4c1a-afa4-8ac48746a888" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__es_amplia_oda_connector_iec104_3_20_4_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__es_amplia_oda_core_commons_3_20_4_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_0_19_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_0_19_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_0_19_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_0_19_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_0_19_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_awaitility_awaitility_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_neoscada_protocols_org_eclipse_neoscada_protocol_iec60870_0_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_neoscada_protocols_org_eclipse_neoscada_protocol_iec60870_client_0_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_neoscada_protocols_org_eclipse_neoscada_protocol_iec60870_client_data_0_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_neoscada_protocols_org_eclipse_neoscada_protocol_iec60870_server_0_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_neoscada_utils_org_eclipse_scada_utils_0_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_osgi_org_osgi_compendium_5_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_osgi_org_osgi_core_5_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/BitstringCommandOperation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/CommandDataHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/InterrogateCommandOperation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/QAClientModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/QAMessageChannel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/utils/QAAbstractDataProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/utils/QADataHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/utils/QADataModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/utils/QADataModuleHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/connectors.iec104/interrogate_oda_for_data.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/connectors.iec104/send_bitstring_command.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_9_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_9_9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/a/0a3b87bc3aa099bc34a86fe0d002143d1779c52e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/9/29bfdee089f2e5978e331988cf521e9cee00b45b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/7/4795d6480bbfbf4414e693a4411f8d174b579cfc" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/7/4795d6480bbfbf4414e693a4411f8d174b579cfc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/a/4a650e5e76a3c5761f7a21067210ac9621d1f724" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/a/6ac2756045a2eee3c967a4a6e6e225d73b278f60" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/b/7b3ddbe341267929e5d6eb1bc0ab373fc5d038c9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/4/84a65ea69067e3be2a1b6c5ca5c59cb1272576ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/a/9a7ad15890e96bbb3de55d0e5a5d62b744ce2efd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/f/9fa47b2a69c5614fb5b537f0f8702b8e4743b0ab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/0/b0f202572ba9f501f0dfeba3d74da7c7e33ffbc0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/6/b654f3a37af1c7d4dd5bdd426432b0be0a8477fb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/0/c00e85ee88cddac21c52d2c1251e328a91c04156" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/b/cb86e119d9a0b84968538970bd6e8fc874b7b7c6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/2/d2ae528d3df5bafb8218810cb839d157b1c2eb5a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/4/d4674bc197d7cae3e7737d808079ad67535201ba" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/operations/PrepareForTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__es_amplia_oda_connector_iec104_3_20_4_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__es_amplia_oda_connector_iec104_3_20_4_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oda-qa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/oda-qa.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/DisabledDatastreamOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/DisabledDatastreamOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/DiscoverOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/DiscoverOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/EventOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/EventOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/GetOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/GetOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/PrepareForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/PrepareForTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/RefreshInfoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/RefreshInfoOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/SetOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/SetOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/SynchronizeOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/SynchronizeOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/UnknownOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/UnknownOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/UpdateOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/UpdateOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/general/ResponseFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/general/ResponseFormat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/sync/SyncOutputVariable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/sync/SyncRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/sync/SyncResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/sync/SyncStep.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/JschData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/JschData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/MyUserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/MyUserInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/configuration/ConfigurationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/configuration/ConfigurationHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discoverManagerRefreshOp-tcplocalhost/.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discoveryManagerDiscoverOp-tcplocalhost/.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RunCucumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RunCucumberTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Translator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Translator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/BitstringCommandOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/BitstringCommandOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/CommandDataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/CommandDataHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/InterrogateCommandOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/InterrogateCommandOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/QAClientModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/QAClientModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/QAMessageChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/QAMessageChannel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/utils/QAAbstractDataProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/utils/QAAbstractDataProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/utils/QADataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/utils/QADataHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/utils/QADataModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/utils/QADataModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/utils/QADataModuleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/utils/QADataModuleHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/discover/DisablingDatastreams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/discover/DisablingDatastreams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/discover/Enable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/discover/Enable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/discover/EnablingDatastreams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/discover/EnablingDatastreams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/discover/Multidisable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/discover/Multidisable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/discover/Multienable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/discover/Multienable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/event/EventDatapoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/event/EventDatapoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/event/EventMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/event/EventMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/event/EventResponseStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/event/EventResponseStruct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/event/MessageDatastreams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/event/MessageDatastreams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/event/ResponseDatapoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/event/ResponseDatapoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/event/ResponseDatastreams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/event/ResponseDatastreams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/general/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/general/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/general/Resp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/general/Resp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/general/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/general/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/general/ResponseFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/general/ResponseFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/general/Step.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/general/Step.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/read/ReadRequestStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/read/ReadRequestStruct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/read/ReadResponseStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/read/ReadResponseStruct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/update/Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/update/Array.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/update/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/update/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/update/Parameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/update/Parameter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/update/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/update/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/update/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/update/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/update/Step.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/update/Step.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/update/UpdateRequestStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/update/UpdateRequestStruct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/update/UpdateResponseStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/update/UpdateResponseStruct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/update/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/update/Value.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/write/WriteRequestStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/write/WriteRequestStruct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/dataStructs/write/WriteResponseStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/dataStructs/write/WriteResponseStruct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/discover/DiscoverData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/discover/DiscoverData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/discover/DiscoverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/discover/DiscoverManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/discover/configuration/ConfigurationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/discover/configuration/ConfigurationHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/http/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/http/HttpUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/CopyFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/jsch/CopyFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/JschData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/jsch/JschData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/MyUserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/jsch/MyUserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/jsch/configuration/ConfigurationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/jsch/configuration/ConfigurationHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/DisabledDatastreamOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/DisabledDatastreamOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/DiscoverOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/DiscoverOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/EventOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/EventOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/GetOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/GetOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/PrepareForTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/RefreshInfoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/RefreshInfoOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/SetOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/SetOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/SynchronizeOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/SynchronizeOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/UnknownOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/UnknownOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/operations/UpdateOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/UpdateOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/serializer/SerializerCBOR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/serializer/SerializerCBOR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/serializer/SerializerJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/serializer/SerializerJSON.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/config/JschData.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config/JschData.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_discover_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_discover_operation.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_discover_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_discover_operation_with_simulator.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_get_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_get_operation.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_get_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_get_operation_with_simulator.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_refresh_info.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_refresh_info.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_refresh_info_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_refresh_info_with_simulator.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_set_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_set_operation.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_set_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_set_operation_with_simulator.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_sync_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_sync_operation.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_sync_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_sync_operation_with_simulator.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_update_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_update_operation.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_a_update_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_update_operation_with_simulator.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_an_unkown_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_an_unkown_operation.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_an_unkown_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_an_unkown_operation_with_simulator.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/do_the_translator_role.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_the_translator_role.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/send_event_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/send_event_operation_with_simulator.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/use_a_disabled_datastream.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/use_a_disabled_datastream.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/use_a_disabled_datastream_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/use_a_disabled_datastream_with_simulator.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/connectors.iec104/interrogate_oda_for_data.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/connectors.iec104/interrogate_oda_for_data.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/connectors.iec104/send_bitstring_command.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/connectors.iec104/send_bitstring_command.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/es.amplia.oda.datastreams.mqtt.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/es.amplia.oda.datastreams.mqtt.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_discover_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_discover_operation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_discover_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_discover_operation_with_simulator.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_get_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_get_operation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_get_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_get_operation_with_simulator.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_refresh_info.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_refresh_info.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_refresh_info_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_refresh_info_with_simulator.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_set_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_set_operation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_set_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_set_operation_with_simulator.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_sync_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_sync_operation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_sync_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_sync_operation_with_simulator.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_update_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_update_operation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_a_update_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_update_operation_with_simulator.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_an_unkown_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_an_unkown_operation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_an_unkown_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_an_unkown_operation_with_simulator.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/do_the_translator_role.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_the_translator_role.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/send_event_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/send_event_operation_with_simulator.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/use_a_disabled_datastream.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/use_a_disabled_datastream.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/operations/use_a_disabled_datastream_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/use_a_disabled_datastream_with_simulator.feature" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,14 +122,20 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="LombokPluginEnabledInProject" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../oda-internal" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../oda-qa-demo" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/resources/hellocucumber/operations" />
-      <recent name="$PROJECT_DIR$/src/test/resources/hellocucumber" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="hellocucumber.dataStructs.sync" />
+      <recent name="hellocucumber" />
+      <recent name="hellocucumber.dataStructs.update" />
+      <recent name="hellocucumber.dataStructs.discover" />
+      <recent name="hellocucumber.dataStructs.event" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="hellocucumber" />
@@ -145,12 +150,10 @@
       <recent name="hellocucumber.dataStructs.discover" />
       <recent name="hellocucumber" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="hellocucumber.dataStructs.sync" />
-      <recent name="hellocucumber" />
-      <recent name="hellocucumber.dataStructs.update" />
-      <recent name="hellocucumber.dataStructs.discover" />
-      <recent name="hellocucumber.dataStructs.event" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+      <recent name="$PROJECT_DIR$/src/test/resources/hellocucumber/operations" />
+      <recent name="$PROJECT_DIR$/src/test/resources/hellocucumber" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -220,32 +223,91 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/utils/QADataModuleHandler.java</url>
-          <line>28</line>
+          <url>file://$PROJECT_DIR$/src/test/java/tests/connectors/iec104/utils/QADataModuleHandler.java</url>
+          <line>26</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/hellocucumber/connectors/iec104/CommandDataHandler.java</url>
+          <url>file://$PROJECT_DIR$/src/test/java/tests/connectors/iec104/CommandDataHandler.java</url>
           <line>47</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/PrepareForTest.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/UnknownOperation.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/UnknownOperation.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/UnknownOperation.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/DiscoverOperation.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/DiscoverOperation.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/DiscoverOperation.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/GetOperation.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/GetOperation.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/GetOperation.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/GetOperation.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/SynchronizeOperation.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/SynchronizeOperation.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/SynchronizeOperation.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/UpdateOperation.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
