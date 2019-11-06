@@ -1,7 +1,7 @@
-package tests.connectors.iec104;
+package tests.iec104;
 
 import es.amplia.oda.connector.iec104.types.BitstringCommand;
-import tests.connectors.iec104.utils.QAAbstractDataProcessor;
+import tests.iec104.utils.QAAbstractDataProcessor;
 import io.netty.channel.ChannelHandlerContext;
 import org.eclipse.neoscada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.*;
@@ -28,7 +28,6 @@ public abstract class CommandDataHandler extends QAAbstractDataProcessor {
 		dataModuleContext.requestStartData();
 		this.dataModuleContext = dataModuleContext;
 		this.channelHandlerContext = channelHandlerContext;
-		//dataModuleContext.startInterrogation(ASDUAddress.valueOf(0), QualifierOfInterrogation.GLOBAL);
 	}
 
 	@Override

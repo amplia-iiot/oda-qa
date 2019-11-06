@@ -1,4 +1,4 @@
-package tests.connectors.iec104.utils;
+package tests.iec104.utils;
 
 import io.netty.channel.socket.SocketChannel;
 import org.eclipse.neoscada.protocol.iec60870.apci.MessageChannel;

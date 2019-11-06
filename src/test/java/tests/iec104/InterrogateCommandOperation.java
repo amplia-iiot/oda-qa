@@ -1,9 +1,9 @@
-package tests.connectors.iec104;
+package tests.iec104;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import tests.connectors.iec104.utils.QADataModule;
+import tests.iec104.utils.QADataModule;
 import org.eclipse.neoscada.protocol.iec60870.ProtocolOptions;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.*;
 import org.eclipse.neoscada.protocol.iec60870.client.AutoConnectClient;
@@ -16,14 +16,15 @@ import java.util.concurrent.TimeUnit;
 import static org.awaitility.Awaitility.await;
 import static org.junit.Assert.assertTrue;
 
-public class BitstringCommandOperation extends CommandDataHandler{
+public class InterrogateCommandOperation extends CommandDataHandler {
 
 	private AutoConnectClient client;
 	private ClientModule clientModule;
 	private QADataModule dataModule;
 
-	@Given("An IEC client connected to ODA server channel to use a bitstring command")
-	public void anIECClientConnectedToODAServerChannelToUseABitstringCommand() {
+
+	@Given("An IEC client connected to ODA server channel")
+	public void anIECClientConnectedToODAServerChannel() {
 		DataModuleOptions.Builder optionsModuleBuilder = new DataModuleOptions.Builder();
 
 		ProtocolOptions.Builder optionsBuilder = new ProtocolOptions.Builder();
@@ -44,40 +45,44 @@ public class BitstringCommandOperation extends CommandDataHandler{
 		};
 
 		this.client = new AutoConnectClient("172.19.17.116", 2404, options, factory, listener);
+		await().until(this::isConnectionAchieved);
+		client.close();
+		this.client = new AutoConnectClient("172.19.17.116", 2404, options, factory, listener);
 
 		setInterrogated(false);
 		setResponseReceived(false);
+		setResponseIsOk(false);
 		setConnectionAchieved(false);
+
 	}
 
-	@When("I send a bitstring command to ODA")
-	public void iSendABitstringCommandToODA() {
+	@When("I send a interrogation ASDU to ODA")
+	public void iSendAInterrogationASDUToODA() {
 		await().until(this::isConnectionAchieved);
-
-		byte[] bytestring = new byte[] {(byte)(42 >> 24),
-				(byte)(42 >> 16),
-				(byte)(42 >> 8),
-				(byte)(42)};
-
-		super.bitstringCommand(10015,bytestring);
-
+		super.interrogate();
 		setInterrogated(true);
 	}
 
-	@Then("I receive a sequential data that match with ASDU form from bitstring command")
-	public void iReceiveASequentialDataThatMatchWithASDUFormFromBitstringCommand() throws Exception {
+	@Then("I receive a sequential data that match with ASDU form")
+	public void iReceiveASequentialDataThatMatchWithASDUForm() throws Exception {
 		for(int i = 0; i < 10 && !isResponseReceived(); i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
 		clientModule.dispose();
 		client.close();
+		assertTrue(isResponseIsOk());
 		assertTrue(isInterrogated());
-		assertTrue(isConnectionAchieved());
 	}
 
 	@Override
 	public void fireEntry(ASDUAddress asduAddress, InformationObjectAddress informationObjectAddress, Value<?> value) {
 		System.out.println(asduAddress + " with origin " + informationObjectAddress + ":\n" + value);
+		if (!value.getValue().getClass().equals(Boolean.class)
+				&& asduAddress != null
+				&& informationObjectAddress != null
+				&& isResponseReceived()) {
+			setResponseIsOk(true);
+		}
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package tests.connectors.iec104;
+package tests.iec104;
 
 import es.amplia.oda.connector.iec104.codecs.*;
 import es.amplia.oda.connector.iec104.types.BitstringCommand;

@@ -1,4 +1,4 @@
-package tests.connectors.iec104.utils;
+package tests.iec104.utils;
 
 import es.amplia.oda.connector.iec104.types.BytestringPointInformationSequence;
 import es.amplia.oda.connector.iec104.types.BytestringPointInformationSingle;

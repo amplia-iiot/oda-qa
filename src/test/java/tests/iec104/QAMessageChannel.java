@@ -1,4 +1,4 @@
-package tests.connectors.iec104;
+package tests.iec104;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPromise;
