@@ -33,11 +33,11 @@ public class UpdateOperation {
 	private static final String MESSAGE_COMMUNICATION_SUCCESS = "SUCCESSFUL";
 	private static final int PORT_HTTP_SERVER = 9000;
 	private HttpServer server;
-	private static final String PATH_TO_LOCAL_CFG = "./src/test/resources/es.amplia.oda.datastreams.mqtt.cfg";
+	private static final String PATH_TO_LOCAL_CFG = "./src/test/resources/tests/operations/es.amplia.oda.datastreams.mqtt.cfg";
 	private CopyFile cf;
 	private final JschData jschData = new JschData();
 	private final DiscoverData discoverData = new DiscoverData();
-	private final String CONFIG_FILE_NAME = "es.amplia.oda.datastreams.mqtt.cfg";
+	private final String CONFIG_FILE_NAME = "tests/iec104/es.amplia.oda.datastreams.mqtt.cfg";
 
 	private boolean responseReceived;
 	private boolean responseIsOk;
@@ -86,7 +86,7 @@ public class UpdateOperation {
 		cf.remoteToLocal(jschData.getPATH_CFG()+CONFIG_FILE_NAME, "./src/test/resources/comparing.cfg");
 		File comparing = new File("./src/test/resources/comparing.cfg");
 		File temp = new File("./src/test/resources/temp.cfg");
-		boolean areFileOk =  FileUtils.contentEquals(comparing, new File("./src/test/resources/es.amplia.oda.datastreams.mqtt.cfg"));
+		boolean areFileOk =  FileUtils.contentEquals(comparing, new File("./src/test/resources/tests/operations/es.amplia.oda.datastreams.mqtt.cfg"));
 		boolean deletedTempFiles = false;
 		cf.localToRemote("./src/test/resources/temp.cfg", jschData.getPATH_CFG()+CONFIG_FILE_NAME);
 		if(comparing.delete() && temp.delete()) {
