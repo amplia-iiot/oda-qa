@@ -23,6 +23,28 @@ This ODA must have the bundles:
         if you will test all, all bundles)
     - For test IEC104: IEC104 Connector, ODA Core
 
+### QA Connectors
+
+If you want to run all connectors tests, use the command:
+
+    mvn verify -Dcucumber.options="--tags @connectors"
+    
+If you want to run only IEC-104 tests, use the command:
+
+    mvn verify -Dcucumber.options="--tags @iec104"
+    
+If you want to run specific test of IEC-104, use:
+
+    mvn verify -Dcucumber.options="--tags @<name_of_function>"
+
+    <name_of_function>:
+        bitstring,
+        interrogate
+        
+### QA Hardware
+
+
+        
 ### QA Operations
     
 If you want to run all operation tests, use command:
@@ -55,24 +77,6 @@ If you want to run test using your own EDP, use the command:
 
 This QA implements a translator of CBOR to see the topic (inside oda/#) and its messages. To use it, enter the command:
     mvn test -Dcucumber.options="--tags @translator"
-
-### QA Connectors
-
-If you want to run all connectors tests, use the command:
-
-    mvn verify -Dcucumber.options="--tags @connectors"
-    
-If you want to run only IEC-104 tests, use the command:
-
-    mvn verify -Dcucumber.options="--tags @iec104"
-    
-If you want to run specific test of IEC-104, use:
-
-    mvn verify -Dcucumber.options="--tags @<name_of_function>"
-
-    <name_of_function>:
-        bitstring,
-        interrogate
         
 ## DEBUG
 
