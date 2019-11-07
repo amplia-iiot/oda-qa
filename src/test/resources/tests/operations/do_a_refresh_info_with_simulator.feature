@@ -11,7 +11,7 @@ Feature: Refresh info operation running a EDP simulator
     Note 1: # represents each datastream of each device registered.
     Note 2: # represents all the devices.
 
-    @all @operations @refreshinfo @operation
+    @all @operations @refreshinfo @simulator
     Scenario Outline: I want to do a refresh info of a device
         Given id of target device to refresh: "<deviceId>"
         Given id of target datastream to refresh: "<datastreamId>"

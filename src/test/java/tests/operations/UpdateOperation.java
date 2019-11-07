@@ -37,7 +37,7 @@ public class UpdateOperation {
 	private CopyFile cf;
 	private final JschData jschData = new JschData();
 	private final DiscoverData discoverData = new DiscoverData();
-	private final String CONFIG_FILE_NAME = "tests/iec104/es.amplia.oda.datastreams.mqtt.cfg";
+	private final String CONFIG_FILE_NAME = "es.amplia.oda.datastreams.mqtt.cfg";
 
 	private boolean responseReceived;
 	private boolean responseIsOk;

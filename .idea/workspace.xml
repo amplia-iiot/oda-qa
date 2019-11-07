@@ -2,90 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f72d6a-0698-4c1a-afa4-8ac48746a888" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/b/ebdba9ab49a29e1d5ff3b354d9d078c83bd91feb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/adc/ConfigureAndGet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/adc/ConfigureAndWaitForAEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/tests/adc/configure_and_get.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/tests/adc/configure_and_wait _for_a_event.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/tests/adc/event/es.amplia.oda.datastreams.adc.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/tests/adc/event/es.amplia.oda.hardware.diozero.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/tests/adc/event/mpp5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/tests/adc/event/mpp5_event" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/tests/adc/get/es.amplia.oda.datastreams.adc.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/tests/adc/get/es.amplia.oda.hardware.diozero.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/tests/adc/get/mpp5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/e/0ed63d52d6a7c4f76aa700f626272a69a56becae" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/0/003d73fce1d8dd95fe50ff91aedb887cda7da959" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/0/104afbc5e0cd21384b48fa3d62ac08aee1e7e937" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/f/1f76c571ad9ef133ef46fb45c7f23ea358708bf3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/0/106559b94491f2fd3311679935a6eb28f00f8a09" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/0/2015f6f9acce99dee25c07df03a48eaadda3d4a8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/1/111615e44d9f7418554bd7c5492d6406603fa699" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2b99b2a5a884d9ebca2a7fd21713669488b310cf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/1/115b6e1b514ee5c2c998698f9d27f939291a9de1" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3c415a7cf45438e05c5ff572151a34254f5fbf42" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/1/11c2d23fdab9e8224edd524bddff46b17ec6b558" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/d/4d66b6b5fa84693e31dcf186b1474d18c71264dd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/3/13be28783aa70b07b47300d208be76c524238d1a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/8/68b3bf474a034c3ad00dbb10328c6ccacb555988" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/6/16b3dfb262c38afb5df83eb6050b531c0e7e96d0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/7/77fccc9e7dd0e9d0d5bd3c1f041fc0a28e74ae08" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/7/1791208d7bec08765bdb5ce6acf99f62f699fc94" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/c/7cc803205ab3680df57af0f66941588f2d19f6ec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/d/1da5a5d3ab42402d008ffbf69cb0bbb1479e8906" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8e930745b3ecbabefde325f25d632fac5de6e872" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/6/268d8b80edf05be959a8b20f188163efaece0b14" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/da19ede6c6b8dcae66b97d5e25deee31d83f650f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/8/287b99deab7d7bd6bad8a8bdac4e922dd13d71eb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/a/2a38c7d757a73708f027d0fe5a4c3c859f2405e2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2b0cdaad878bf56d3c48586a89cee820516b8b07" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2b17c10c7e58ce9fa09f07cf03c2f9e96f0cd804" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/c/2c412781c20139bed9704fe60b9ab0b15337c280" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/1/310d3cdeb5a6f0c6717c8704f88c8b32bf6d9f84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/2/32e65d6752a1c59f1c974e2d6444ed7e4a05e25b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/9/39a85711e8f9cc5fade341cdef6bc7d6bd5f4455" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3c916d1fe7d1c27d191606bf4051672d80ea1c73" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/e/3e206842acfac0a07e874d0c8b2360cf6051ff8b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/1/4115caeeac4cf35d93bbfed3d1bf40ab502bd8d8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/7/4795d6480bbfbf4414e693a4411f8d174b579cfc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/f/4f5a3f883ac814d3dfa889f7f47b0e905784e783" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/f/4fd2a7dd0787b060ce15d17c40e26a8e95d6eebb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/f/4fd5b61c81821a2e8c6ced0571c68c6c856fe26b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/567db92f92b037472b7bd5f27ea6af71a6093bfb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/7/578f142838f78bbd4f09d785ca7488c7be5cf2fd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/d/6d19454cba0006f766d567cc5e43fe5fed72b41d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/d/6df1d1c726c0c9747636385368e20db4e32dabf3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/e/6e3d2c21af3e1c004c4a9e0905e4fa72c26385ff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/f/6f7ca63a43427466edafe37898fa738f379f13fe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/7/777b5892d4af68f960386d4d19aaca30b11c223c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/78d071a4777405b23ef5e344b40565b4cb915f57" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/1/811c632359e57ed2f749a8ce856aa54d533f7cf5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/83085dfcb65ff762ef07752afeceb8ebbc582ee9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/3/93b7472f848a449d2c89a0b9585c1c1a8a7edce0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/f/9f65d99eb69c5d7998d2385dcc18bb845ea88a64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/1/a16bfa40b359cf28fcdaf619b6de281f9ea9ba05" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/4/a4d20344d321a0a83785bb755c67d6bffddaa0a7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b998295133d6fd91ca0d8491be0ca855742c3e99" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/a/bab50dcf9299f72ee95e355c89259af257eb2224" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/c/bc4a78262bb6d1b5f160ad079145d2faa65ee79f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/c/bc59e19b75d2587f155dc6225480a92b666f6079" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/2/c2503c28a9485fdc81065385241846259f1e2579" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/8/c82c985769e2c55240b81e15a7994a93c29945f5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/ca64bb01e6ec1b3baa86611539a10a0f62dadfe3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/6/d693a7408cf2d4c5449547d2282d89ec310ff2eb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/9/d98cb38e8135ef764e2b0877b93c49cfef6f8442" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/df9e2c16b96733772a1fa0c6a03eded3e6695832" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/e/eef8ca51352338611064d0a412e2a95554fa429d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/4/f4afb9d7d5a50e9db2c7d4756f792b042e2a8a15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/5/f5ed208f7daeeb8e92c5508434cb0bbb09f196fe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/c/fcf5e2aed98092ece37a23b53c211fc2992fcf6d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/560e1f738bbcb60f897017cbb42c7294993acaa7" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/BitstringCommandOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/BitstringCommandOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/CommandDataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/CommandDataHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/InterrogateCommandOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/InterrogateCommandOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/QAClientModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/QAClientModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/QAMessageChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/QAMessageChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/utils/QAAbstractDataProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/utils/QAAbstractDataProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/utils/QADataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/utils/QADataHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/utils/QADataModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/utils/QADataModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/connectors/iec104/utils/QADataModuleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/utils/QADataModuleHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/iec104/BitstringCommandOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/BitstringCommandOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/iec104/InterrogateCommandOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/InterrogateCommandOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/PrepareForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/PrepareForTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/UpdateOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/UpdateOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/config/JschData.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config/JschData.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/es.amplia.oda.datastreams.mqtt.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/iec104/es.amplia.oda.datastreams.mqtt.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/connectors.iec104/interrogate_oda_for_data.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/iec104/interrogate_oda_for_data.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/connectors.iec104/send_bitstring_command.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/iec104/send_bitstring_command.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/iec104/es.amplia.oda.datastreams.mqtt.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/es.amplia.oda.datastreams.mqtt.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_refresh_info_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_refresh_info_with_simulator.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_set_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_set_operation_with_simulator.feature" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +41,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="LombokPluginEnabledInProject" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../oda" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spin-remote-v5" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -124,12 +49,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/resources/tests/adc/get" />
-      <recent name="$PROJECT_DIR$/src/test/resources/tests/adc/event" />
-      <recent name="$PROJECT_DIR$/src/test/resources/tests/iec104" />
-      <recent name="$PROJECT_DIR$/src/test/resources" />
-      <recent name="$PROJECT_DIR$/src/test/resources/hellocucumber/operations" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="hellocucumber.dataStructs.sync" />
+      <recent name="hellocucumber" />
+      <recent name="hellocucumber.dataStructs.update" />
+      <recent name="hellocucumber.dataStructs.discover" />
+      <recent name="hellocucumber.dataStructs.event" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="hellocucumber" />
@@ -146,12 +71,12 @@
       <recent name="hellocucumber.dataStructs.discover" />
       <recent name="hellocucumber" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="hellocucumber.dataStructs.sync" />
-      <recent name="hellocucumber" />
-      <recent name="hellocucumber.dataStructs.update" />
-      <recent name="hellocucumber.dataStructs.discover" />
-      <recent name="hellocucumber.dataStructs.event" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources/tests/operations" />
+      <recent name="$PROJECT_DIR$/src/test/resources/tests/adc/get" />
+      <recent name="$PROJECT_DIR$/src/test/resources/tests/adc/event" />
+      <recent name="$PROJECT_DIR$/src/test/resources/tests/iec104" />
+      <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -231,14 +156,24 @@
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/tests/iec104/BitstringCommandOperation.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="78" />
+          <url>file://$PROJECT_DIR$/src/test/java/tests/iec104/InterrogateCommandOperation.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/GetOperation.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/tests/iec104/InterrogateCommandOperation.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="79" />
+          <line>32</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/iec104/InterrogateCommandOperation.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="84" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

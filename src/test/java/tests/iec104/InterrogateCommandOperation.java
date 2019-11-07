@@ -49,9 +49,6 @@ public class InterrogateCommandOperation extends CommandDataHandler {
 
 		JschData jschData = new JschData();
 		this.client = new AutoConnectClient(jschData.getSSH_SERVER_IP(), 2404, options, factory, listener);
-		await().until(this::isConnectionAchieved);
-		client.close();
-		this.client = new AutoConnectClient(jschData.getSSH_SERVER_IP(), 2404, options, factory, listener);
 
 		setInterrogated(false);
 		setResponseReceived(false);

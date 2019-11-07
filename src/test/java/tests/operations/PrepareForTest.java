@@ -53,10 +53,6 @@ public class PrepareForTest {
 				fileOut.write(inputBuffer.toString().getBytes());
 				fileOut.close();
 			} else {
-				DatagramSocket socket = new DatagramSocket();
-				socket.connect(InetAddress.getByName("8.8.8.8"), 10002);
-				String myIp = socket.getLocalAddress().getHostAddress();
-
 				CopyFile cf = new CopyFile(jschData.getSSH_USER_USER(), jschData.getSSH_USER_IP());
 
 				cf.remoteToLocal(jschData.getPATH_CFG() + CONNECTOR_FILE_NAME, PATH_TEMP_ODA_CONFIGURATION);
@@ -67,7 +63,7 @@ public class PrepareForTest {
 
 				while ((line = file.readLine()) != null) {
 					if (line.contains("host=")) {
-						inputBuffer.append("host=").append(myIp).append("\n");
+						inputBuffer.append("host=").append(jschData.getSSH_SERVER_IP()).append("\n");
 					} else {
 						inputBuffer.append(line).append("\n");
 					}
@@ -86,7 +82,7 @@ public class PrepareForTest {
 
 				while ((line = file.readLine()) != null) {
 					if (line.contains("brokerURI=")) {
-						inputBuffer.append("brokerURI=tcp://").append(myIp).append(":1883\n");
+						inputBuffer.append("brokerURI=tcp://").append(jschData.getSSH_SERVER_IP()).append(":1883\n");
 					} else {
 						inputBuffer.append(line).append("\n");
 					}
