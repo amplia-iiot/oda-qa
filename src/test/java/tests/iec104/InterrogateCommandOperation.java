@@ -9,7 +9,10 @@ import org.eclipse.neoscada.protocol.iec60870.asdu.types.*;
 import org.eclipse.neoscada.protocol.iec60870.client.AutoConnectClient;
 import org.eclipse.neoscada.protocol.iec60870.client.ClientModule;
 import org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions;
+import tests.jsch.JschData;
 
+import javax.naming.ConfigurationException;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
@@ -24,7 +27,7 @@ public class InterrogateCommandOperation extends CommandDataHandler {
 
 
 	@Given("An IEC client connected to ODA server channel")
-	public void anIECClientConnectedToODAServerChannel() {
+	public void anIECClientConnectedToODAServerChannel() throws IOException, ConfigurationException {
 		DataModuleOptions.Builder optionsModuleBuilder = new DataModuleOptions.Builder();
 
 		ProtocolOptions.Builder optionsBuilder = new ProtocolOptions.Builder();
@@ -44,10 +47,11 @@ public class InterrogateCommandOperation extends CommandDataHandler {
 				setConnectionAchieved(false);
 		};
 
-		this.client = new AutoConnectClient("172.19.17.116", 2404, options, factory, listener);
+		JschData jschData = new JschData();
+		this.client = new AutoConnectClient(jschData.getSSH_SERVER_IP(), 2404, options, factory, listener);
 		await().until(this::isConnectionAchieved);
 		client.close();
-		this.client = new AutoConnectClient("172.19.17.116", 2404, options, factory, listener);
+		this.client = new AutoConnectClient(jschData.getSSH_SERVER_IP(), 2404, options, factory, listener);
 
 		setInterrogated(false);
 		setResponseReceived(false);
