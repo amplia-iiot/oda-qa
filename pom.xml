@@ -7,13 +7,13 @@
 
     <groupId>oda-qa</groupId>
     <artifactId>oda-qa</artifactId>
-    <version>3.17.1-SNAPSHOT</version>
+    <version>3.30.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
         <cucumber.version>4.2.6</cucumber.version>
         <junit.version>4.12</junit.version>
-        <jackson.version>2.9.9</jackson.version>
+        <jackson.version>2.10.0</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <netty.version>4.0.19.Final</netty.version>
     </properties>

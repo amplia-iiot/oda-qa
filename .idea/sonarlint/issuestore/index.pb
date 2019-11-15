@@ -48,3 +48,5 @@ k
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 m
 =src/test/java/tests/iec104/utils/QAAbstractDataProcessor.java,8/9/8926d8615dcfadde3e035908d9bffe34c6dfd507
+`
+0src/test/java/tests/operations/SetOperation.java,f/5/f53243268ea95242a145dc8aaffafd2099874171

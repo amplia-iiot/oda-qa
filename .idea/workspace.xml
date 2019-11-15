@@ -2,15 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f72d6a-0698-4c1a-afa4-8ac48746a888" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_9_9.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/iec104/BitstringCommandOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/BitstringCommandOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/iec104/InterrogateCommandOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/iec104/InterrogateCommandOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/PrepareForTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/PrepareForTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/UpdateOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/UpdateOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/iec104/es.amplia.oda.datastreams.mqtt.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/es.amplia.oda.datastreams.mqtt.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_refresh_info_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_refresh_info_with_simulator.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_set_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_set_operation_with_simulator.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oda-qa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/oda-qa.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/DiscoverOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/DiscoverOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/RefreshInfoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/RefreshInfoOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/SetOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/SetOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/SynchronizeOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/SynchronizeOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/config/DiscoverData.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config/DiscoverData.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/config/JschData.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config/JschData.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_get_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_get_operation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_refresh_info.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_refresh_info.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_set_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_set_operation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_sync_operation.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_sync_operation.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/operations/send_event_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/send_event_operation_with_simulator.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/tests/operations/use_a_disabled_datastream.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/use_a_disabled_datastream.feature" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,10 +49,11 @@
   <component name="ProjectId" id="1OoaSFos5CSPBHpVx0xh76plu5w" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="LombokPluginEnabledInProject" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spin-remote-v5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -174,6 +186,16 @@
           <url>file://$PROJECT_DIR$/src/test/java/tests/iec104/InterrogateCommandOperation.java</url>
           <line>50</line>
           <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/SynchronizeOperation.java</url>
+          <line>112</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/EventOperation.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
