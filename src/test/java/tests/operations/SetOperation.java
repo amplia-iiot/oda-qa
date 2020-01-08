@@ -128,4 +128,6 @@ public class SetOperation {
 		@Override
 		public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {/* method not used*/}
 	}
+
+	// '{"operation":{"request":{"timestamp":1554978284595,"deviceId":"Tm1234","name":"SET_DEVICE_PARAMETERS","parameters":[{"name":"variableList","value":{"array":[{"variableName":"q","variableValue":17}]}}],"id":"4aabb9c6-61ec-43ed-b0e4-dabface44b64"}}}'
 }

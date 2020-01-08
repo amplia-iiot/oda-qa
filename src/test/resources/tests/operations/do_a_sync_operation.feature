@@ -14,4 +14,4 @@ Feature: Sync operation
         Then I receive a response with approximately the actual hour
         Examples:
             | deviceId | datastreamId |
-            | edp      | clock        |
+            | Tm1234   | clock        |

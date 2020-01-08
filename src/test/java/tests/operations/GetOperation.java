@@ -91,7 +91,7 @@ public class GetOperation {
 	@Then("I receive a datapoint and no error")
 	public void iReceiveADatapointAndNoError() throws MqttException, InterruptedException {
 		for(int i = 0; i < 10 && !responseReceived; i++) {
-			TimeUnit.MILLISECONDS.sleep(500);
+			TimeUnit.MILLISECONDS.sleep(1000);
 		}
 		client.disconnect();
 		assertTrue(responseIsOk);

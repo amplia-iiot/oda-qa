@@ -130,5 +130,5 @@ public class RefreshInfoOperation {
 		@Override
 		public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {/* method not used*/}
 	}
-	/*    {"operation":{"request":{"timestamp":1571993751183,"name":"REFRESH_INFO","parameters":[],"id":"b949fabf-4734-46fe-937c-ea1e51fc2cf7"}}}*/
+	/*    '{"operation":{"request":{"timestamp":1571993751183,"deviceId":"Tm1234","name":"REFRESH_INFO","parameters":[],"id":"b949fabf-4734-46fe-937c-ea1e51fc2cf7"}}}' */
 }

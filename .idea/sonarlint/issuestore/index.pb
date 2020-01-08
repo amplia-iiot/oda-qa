@@ -50,3 +50,7 @@ m
 =src/test/java/tests/iec104/utils/QAAbstractDataProcessor.java,8/9/8926d8615dcfadde3e035908d9bffe34c6dfd507
 `
 0src/test/java/tests/operations/SetOperation.java,f/5/f53243268ea95242a145dc8aaffafd2099874171
+h
+8src/test/java/tests/operations/SynchronizeOperation.java,0/d/0d6ded497572714c94ead624c570d109230615d6
+g
+7src/test/java/tests/operations/CreateRuleOperation.java,e/a/eaa85898fd8c9ed6d3031e20817c011aa1477d86

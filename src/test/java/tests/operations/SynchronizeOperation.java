@@ -136,4 +136,6 @@ public class SynchronizeOperation {
 		@Override
 		public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {/* method not used*/}
 	}
+	// '{"operation":{"request":{"timestamp":1554978284595,"deviceId":"aDevice","name":"SET_CLOCK_EQUIPMENT","parameters":[],"id":"4aabb9c6-61ec-43ed-b0e4-dabface44b64"}}}'
+	// '{"operation":{"request":{"timestamp":1554978284595,"deviceId":"aDevice","name":"SYNCHRONIZE_CLOCK","parameters":[],"id":"4aabb9c6-61ec-43ed-b0e4-dabface44b64"}}}'
 }

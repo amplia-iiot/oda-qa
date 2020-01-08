@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f72d6a-0698-4c1a-afa4-8ac48746a888" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_9_9.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/operations/CreateRuleOperation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/do_a_create_rule.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oda-qa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/oda-qa.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/DiscoverOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/DiscoverOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/GetOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/GetOperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/RefreshInfoOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/RefreshInfoOperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/SetOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/SetOperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/operations/SynchronizeOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/operations/SynchronizeOperation.java" afterDir="false" />
@@ -23,7 +20,6 @@
       <change beforePath="$PROJECT_DIR$/src/test/resources/tests/operations/send_event_operation_with_simulator.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/send_event_operation_with_simulator.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/tests/operations/use_a_disabled_datastream.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/tests/operations/use_a_disabled_datastream.feature" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,12 +44,18 @@
   </component>
   <component name="ProjectId" id="1OoaSFos5CSPBHpVx0xh76plu5w" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="LombokPluginEnabledInProject" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../oda-qa-demo" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -91,18 +93,6 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="Testing" type="Remote">
       <module name="oda-qa" />
@@ -119,6 +109,18 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -132,15 +134,6 @@
     </task>
     <servers />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -153,6 +146,57 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="156" y="188" width="702" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578393606043">
+      <screen x="0" y="27" width="1024" height="741" />
+    </state>
+    <state x="156" y="188" width="702" height="390" key="#com.intellij.fileTypes.FileTypeChooser/1024.0.1366.768/0.27.1024.741@0.27.1024.741" timestamp="1578393606043" />
+    <state x="320" y="95" width="374" height="575" key="#com.intellij.ide.util.MemberChooser" timestamp="1578396429276">
+      <screen x="0" y="27" width="1024" height="741" />
+    </state>
+    <state x="320" y="95" width="374" height="575" key="#com.intellij.ide.util.MemberChooser/1024.0.1366.768/0.27.1024.741@0.27.1024.741" timestamp="1578396429276" />
+    <state x="420" y="86" key="#xdebugger.evaluate" timestamp="1578481831220">
+      <screen x="0" y="27" width="1024" height="741" />
+    </state>
+    <state x="420" y="86" key="#xdebugger.evaluate/1024.0.1366.768/0.27.1024.741@1024.0.1366.768" timestamp="1578481831220" />
+    <state x="295" y="141" width="424" height="484" key="FileChooserDialogImpl" timestamp="1578472764880">
+      <screen x="0" y="27" width="1024" height="741" />
+    </state>
+    <state x="295" y="141" width="424" height="484" key="FileChooserDialogImpl/1024.0.1366.768/0.27.1024.741@0.27.1024.741" timestamp="1578472764880" />
+    <state x="1418" y="118" key="FileChooserDialogImpl/1024.0.1366.768/0.27.1024.741@1024.0.1366.768" timestamp="1578467846439" />
+    <state width="1267" height="186" key="GridCell.Tab.0.bottom" timestamp="1578481907899">
+      <screen x="1024" y="0" width="1366" height="768" />
+    </state>
+    <state width="1267" height="186" key="GridCell.Tab.0.bottom/1024.0.1366.768/0.27.1024.741@1024.0.1366.768" timestamp="1578481907899" />
+    <state width="1267" height="186" key="GridCell.Tab.0.center" timestamp="1578481907899">
+      <screen x="1024" y="0" width="1366" height="768" />
+    </state>
+    <state width="1267" height="186" key="GridCell.Tab.0.center/1024.0.1366.768/0.27.1024.741@1024.0.1366.768" timestamp="1578481907899" />
+    <state width="1267" height="186" key="GridCell.Tab.0.left" timestamp="1578481907899">
+      <screen x="1024" y="0" width="1366" height="768" />
+    </state>
+    <state width="1267" height="186" key="GridCell.Tab.0.left/1024.0.1366.768/0.27.1024.741@1024.0.1366.768" timestamp="1578481907899" />
+    <state width="1267" height="186" key="GridCell.Tab.0.right" timestamp="1578481907899">
+      <screen x="1024" y="0" width="1366" height="768" />
+    </state>
+    <state width="1267" height="186" key="GridCell.Tab.0.right/1024.0.1366.768/0.27.1024.741@1024.0.1366.768" timestamp="1578481907899" />
+    <state x="168" y="210" key="com.intellij.ide.util.TipDialog" timestamp="1578467632643">
+      <screen x="0" y="27" width="1024" height="741" />
+    </state>
+    <state x="168" y="210" key="com.intellij.ide.util.TipDialog/1024.0.1366.768/0.27.1024.741@0.27.1024.741" timestamp="1578467632643" />
+    <state x="1461" y="27" width="699" height="560" maximized="true" key="dock-window-1" timestamp="1578394202288">
+      <screen x="1024" y="0" width="1366" height="768" />
+    </state>
+    <state x="1461" y="27" width="699" height="560" maximized="true" key="dock-window-1/1024.0.1366.768/0.27.1024.741@0.27.1024.741" timestamp="1578394202288" />
+    <state x="1465" y="27" width="699" height="726" maximized="true" key="dock-window-2" timestamp="1578395836688">
+      <screen x="1024" y="0" width="1366" height="768" />
+    </state>
+    <state x="1465" y="27" width="699" height="726" maximized="true" key="dock-window-2/1024.0.1366.768/0.27.1024.741@0.27.1024.741" timestamp="1578395836688" />
+    <state x="0" y="80" width="1014" height="605" key="new project wizard" timestamp="1578398513557">
+      <screen x="0" y="27" width="1024" height="741" />
+    </state>
+    <state x="0" y="80" width="1014" height="605" key="new project wizard/1024.0.1366.768/0.27.1024.741@0.27.1024.741" timestamp="1578398513557" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -196,6 +240,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/tests/operations/EventOperation.java</url>
           <line>67</line>
           <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/operations/CreateRuleOperation.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

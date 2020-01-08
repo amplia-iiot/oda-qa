@@ -19,5 +19,5 @@ Feature: Write operation
         When I send a request to ODA to set the data
         Then I receive a response
         Examples:
-            | deviceId  |   datastreamId    | value |
-            | edp       |operationNumberCell| 42    |
+            | deviceId | datastreamId | value |
+            | Tm1234   | cellOps      | 42    |

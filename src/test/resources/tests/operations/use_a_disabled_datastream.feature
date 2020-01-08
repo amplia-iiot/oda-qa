@@ -8,5 +8,5 @@ Feature: Use a disabled datastream
         When I request to read to ODA
         Then ODA should send error
         Examples:
-            | deviceId  | datastreamId |
-            | edp       | fakeId       |
+            | deviceId | datastreamId |
+            | Tm1234   | fakeId       |

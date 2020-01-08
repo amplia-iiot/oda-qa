@@ -65,6 +65,7 @@ public class DiscoverOperation {
 		discoverManager.disable("edp", "datStrWr");
 		discoverManager.disable("edp", "datStrRw");
 		assertEquals(0, discoverManager.connectedQuant());
+		assertTrue(count > 0);
 		discoverManager.disconnect();
 	}
 
@@ -75,7 +76,6 @@ public class DiscoverOperation {
 		}
 		client.disconnect();
 		EDPSimulator.disconnect();
-		assertTrue(count > 0);
 		assertTrue(responseIsOk);
 	}
 
@@ -112,4 +112,6 @@ public class DiscoverOperation {
 		@Override
 		public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {/* method not used*/}
 	}
+
+	// '{"operation":{"request":{"timestamp":1557306193823,"deviceId":"aDevice","name":"DISCOVER","parameters":[],"id":"73da9ff8-15a9-4e9a-9b2d-b6e5efbc856b"}}}'
 }

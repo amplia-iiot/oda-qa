@@ -9,8 +9,8 @@ Feature: Send event operation
         When I send a event to ODA
         Then ODA receive data and send it
         Examples:
-            | deviceId  | datastreamId | value |
-            | edp       | q            | 42    |
+            | deviceId | datastreamId | value |
+            | Tm1234   | cellOps      | 42    |
 
     @all @operations @event @multiple @simulator
     Scenario Outline: I want to send various values to ODA
@@ -21,4 +21,4 @@ Feature: Send event operation
         Then ODA receive data and send it
         Examples:
             | deviceId |
-            | edp      |
+            | Tm1234   |

@@ -18,11 +18,11 @@ Feature: Read operation
         When I send a request to ODA with required data
         Then I receive a datapoint and no error
         Examples:
-            | deviceId  | datastreamId  |
-            | edp       | q             |
-            | edp       | s             |
-            | edp       | smoke         |
-            | edp       |transformerTemp|
-            | edp       | voltage1      |
-            | edp       | voltage2      |
-            | edp       | voltage3      |
+            | deviceId | datastreamId    |
+            | Tm1234   | q               |
+            | Tm1234   | s               |
+            | Tm1234   | smoke           |
+            | Tm1234   | transformerTemp |
+            | Tm1234   | voltage1        |
+            | Tm1234   | voltage2        |
+            | Tm1234   | voltage3        |

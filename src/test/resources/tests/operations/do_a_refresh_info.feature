@@ -18,4 +18,4 @@ Feature: Refresh info operation
         Then I receive a response of all datastreams
         Examples:
             | deviceId |
-            |  edp     |
+            | Tm1234   |
