@@ -60,5 +60,14 @@
     <orderEntry type="library" name="Maven: org.osgi:org.osgi.compendium:5.0.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.awaitility:awaitility:3.1.6" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-library:1.3" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: com.automatak.dnp3:opendnp3-bindings:2.2.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/test/resources/es/amplia/oda/connector/dnp3/libraries/opendnp3-bindings.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

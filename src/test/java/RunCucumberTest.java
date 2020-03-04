@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = {"src/test/resources/tests"},
+		features = {"src/test/resources/es/amplia/oda"},
 		plugin = {"pretty", "html:target/site/cucumber-pretty", "json:target/cucumber.json"},
 		tags = "@all")
 public class RunCucumberTest {

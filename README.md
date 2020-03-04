@@ -35,17 +35,32 @@ If you want to run only IEC-104 tests, use the command:
     
 If you want to run specific test of IEC-104, use:
 
-    mvn verify -Dcucumber.options="--tags @<name_of_function>"
+    mvn verify -Dcucumber.options="--tags @iec104 --tags @<name_of_function>"
 
     <name_of_function>:
         bitstring,
         interrogate
+ 
+If you want to run only DNP3 tests, use the command:
+
+    mvn verify -Dcucumber.options="--tags @dnp3"
+    
+If you want to run specific test of DNP3, use:
+
+    mvn verify -Dcucumber.options="--tags @dnp3 --tags @<name_of_function>"
+
+    <name_of_function>:
+        connect
         
 ### QA Hardware
 
 
         
 ### QA Operations
+
+#####IMPORTANT: This tests work using MQTT connector. 
+#####This is because the implementation of tests contains MQTT client to connect.
+#####Use another connector would require new implementations of these tests.
     
 If you want to run all operation tests, use command:
 
@@ -54,7 +69,7 @@ If you want to run all operation tests, use command:
 
 If you want to run test of one function use:
 
-    mvn verify -Dcucumber.options="--tags @<name_of_function>"
+    mvn verify -Dcucumber.options="--tags @operations --tags @<name_of_function>"
 
     <name_of_function>:
         localprotocoldiscovery,
@@ -67,15 +82,16 @@ If you want to run test of one function use:
         event,
         disabled
 
-If you want to run test mocking EDP use the command:
+If you want to run test mocking the responses expected by ODA from South, use the command:
 
     mvn verify -Dcucumber.options="--tags @simulator"
 
-If you want to run test using your own EDP, use the command:
+If you want to run test using your own software that responses to ODA, use the command:
 
     mvn verify -Dcucumber.options="--tags @edp"
 
 This QA implements a translator of CBOR to see the topic (inside oda/#) and its messages. To use it, enter the command:
+    
     mvn test -Dcucumber.options="--tags @translator"
         
 ## DEBUG
@@ -90,5 +106,5 @@ To use this option, yo have to run any test with it, for example this will run e
 
 ## WARNING
 
-Translator have a while(true) to stay translating until you stop it.
+utils.Translator have a while(true) to stay translating until you stop it.
             If you run all tests, the translator will run.

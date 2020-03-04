@@ -16,7 +16,21 @@
         <jackson.version>2.10.0</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <netty.version>4.0.19.Final</netty.version>
+        <opendnp3.version>2.2.0</opendnp3.version>
     </properties>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>amplia-snapshots</id>
+            <name>Amplia Snapshots Repository</name>
+            <url>http://repository.amplia.es:8081/nexus/content/repositories/amplia-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>amplia-releases</id>
+            <name>Amplia Release Repository</name>
+            <url>http://repository.amplia.es:8081/nexus/content/repositories/amplia-releases/</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>
@@ -203,6 +217,58 @@
             <artifactId>awaitility</artifactId>
             <version>3.1.6</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.automatak.dnp3</groupId>
+            <artifactId>opendnp3-bindings</artifactId>
+            <version>${opendnp3.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/test/resources/es/amplia/oda/connector/dnp3/libraries/opendnp3-bindings.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.automatak.dnp3</groupId>
+            <artifactId>libopendnp3java</artifactId>
+            <version>${opendnp3.version}</version>
+            <type>so</type>
+            <classifier>x86_64</classifier>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/test/resources/es/amplia/oda/connector/dnp3/libraries/libopendnp3java.so</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.automatak.dnp3</groupId>
+            <artifactId>libasiopal</artifactId>
+            <version>${opendnp3.version}</version>
+            <type>so</type>
+            <classifier>x86_64</classifier>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/test/resources/es/amplia/oda/connector/dnp3/libraries/libasiopal.so</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.automatak.dnp3</groupId>
+            <artifactId>libasiodnp3</artifactId>
+            <version>${opendnp3.version}</version>
+            <type>so</type>
+            <classifier>x86_64</classifier>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/test/resources/es/amplia/oda/connector/dnp3/libraries/libasiodnp3.so</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.automatak.dnp3</groupId>
+            <artifactId>libopenpal</artifactId>
+            <version>${opendnp3.version}</version>
+            <type>so</type>
+            <classifier>x86_64</classifier>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/test/resources/es/amplia/oda/connector/dnp3/libraries/libopenpal.so</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.automatak.dnp3</groupId>
+            <artifactId>libopendnp3</artifactId>
+            <version>${opendnp3.version}</version>
+            <type>so</type>
+            <classifier>x86_64</classifier>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/test/resources/es/amplia/oda/connector/dnp3/libraries/libopendnp3.so</systemPath>
         </dependency>
     </dependencies>
 </project>
