@@ -50,10 +50,7 @@ public class DNP3Connection {
 	public DNP3Connection() throws DNP3Exception {}
 
 	private DNP3ChannelListener channelListener;
-	private Channel channel;
 	private DNP3Configuration config;
-	private boolean started;
-	private Master master;
 
 	@Given("loaded dnp3 libraries")
 	public void loadedDnp3Libraries() {
@@ -65,14 +62,13 @@ public class DNP3Connection {
 
 	@Given("data for the connection")
 	public void dataForTheConnection() throws IOException, ConfigurationException {
-		started = false;
 		config = new DNP3Configuration();
 	}
 
 	@When("start the connection with ODA")
 	public void startTheConnectionWithODA() throws DNP3Exception {
 		channelListener = new DNP3ChannelListener();
-		channel = manager.addTCPClient(
+		Channel channel = manager.addTCPClient(
 				config.getChannelIdentifier(),
 				config.getLogLevel() | LogMasks.APP_COMMS,
 				ChannelRetry.getDefault(),
@@ -81,7 +77,7 @@ public class DNP3Connection {
 				config.getIpPort(),
 				channelListener
 		);
-		master = channel.addMaster("master", new TestingSOEHandler(), DefaultMasterApplication.getInstance(),
+		Master master = channel.addMaster("master", new TestingSOEHandler(), DefaultMasterApplication.getInstance(),
 				new MasterStackConfig());
 		master.addPeriodicScan(Duration.ofSeconds(1), Header.getIntegrity());
 		master.enable();
@@ -89,66 +85,42 @@ public class DNP3Connection {
 
 	@Then("connection is achieved")
 	public void connectionIsAchieved() throws InterruptedException {
-		for(int i = 0; i < 10 && !isConnectionStarted(); i++) {
+		for(int i = 0; i < 10 && !channelListener.isOpen(); i++) {
 			TimeUnit.MILLISECONDS.sleep(500);
 		}
 		assertTrue(channelListener.isOpen());
 	}
 
-	private boolean isConnectionStarted() {
-		return started;
-	}
-
-	public class TestingSOEHandler implements SOEHandler {
+	public static class TestingSOEHandler implements SOEHandler {
 
 		@Override
-		public void start() {
-			started = true;
-		}
+		public void start() {}
 
 		@Override
-		public void end() {
-			// Unused for this test
-		}
+		public void end() {}
 
 		@Override
-		public void processBI(HeaderInfo info, Iterable<IndexedValue<BinaryInput>> values) {
-			// Unused for this test
-		}
+		public void processBI(HeaderInfo info, Iterable<IndexedValue<BinaryInput>> values) {}
 
 		@Override
-		public void processDBI(HeaderInfo info, Iterable<IndexedValue<DoubleBitBinaryInput>> values) {
-			// Unused for this test
-		}
+		public void processDBI(HeaderInfo info, Iterable<IndexedValue<DoubleBitBinaryInput>> values) {}
 
 		@Override
-		public void processAI(HeaderInfo info, Iterable<IndexedValue<AnalogInput>> values) {
-			// Unused for this test
-		}
+		public void processAI(HeaderInfo info, Iterable<IndexedValue<AnalogInput>> values) {}
 
 		@Override
-		public void processC(HeaderInfo info, Iterable<IndexedValue<Counter>> values) {
-			// Unused for this test
-		}
+		public void processC(HeaderInfo info, Iterable<IndexedValue<Counter>> values) {}
 
 		@Override
-		public void processFC(HeaderInfo info, Iterable<IndexedValue<FrozenCounter>> values) {
-			// Unused for this test
-		}
+		public void processFC(HeaderInfo info, Iterable<IndexedValue<FrozenCounter>> values) {}
 
 		@Override
-		public void processBOS(HeaderInfo info, Iterable<IndexedValue<BinaryOutputStatus>> values) {
-			// Unused for this test
-		}
+		public void processBOS(HeaderInfo info, Iterable<IndexedValue<BinaryOutputStatus>> values) {}
 
 		@Override
-		public void processAOS(HeaderInfo info, Iterable<IndexedValue<AnalogOutputStatus>> values) {
-			// Unused for this test
-		}
+		public void processAOS(HeaderInfo info, Iterable<IndexedValue<AnalogOutputStatus>> values) {}
 
 		@Override
-		public void processDNPTime(HeaderInfo info, Iterable<DNPTime> values) {
-			// Unused for this test
-		}
+		public void processDNPTime(HeaderInfo info, Iterable<DNPTime> values) {}
 	}
 }

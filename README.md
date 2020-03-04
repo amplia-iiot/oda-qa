@@ -1,8 +1,6 @@
 #   oda-qa
 
-Tests to use ODA with EDP.
-
-First of all, run an ODA in local that 
+Tests to check the correct working of ODA.
 
 ## CONFIGURATION
 
@@ -58,9 +56,9 @@ If you want to run specific test of DNP3, use:
         
 ### QA Operations
 
-#####IMPORTANT: This tests work using MQTT connector. 
-#####This is because the implementation of tests contains MQTT client to connect.
-#####Use another connector would require new implementations of these tests.
+##### IMPORTANT: This tests work using MQTT connector. 
+##### This is because the implementation of tests contains MQTT client to connect.
+##### Use another connector would require new implementations of these tests.
     
 If you want to run all operation tests, use command:
 

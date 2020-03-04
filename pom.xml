@@ -15,8 +15,9 @@
         <junit.version>4.12</junit.version>
         <jackson.version>2.10.0</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <netty.version>4.0.19.Final</netty.version>
+        <netty.version>4.1.45.Final</netty.version>
         <opendnp3.version>2.2.0</opendnp3.version>
+        <paho.version>1.2.1</paho.version>
     </properties>
 
     <distributionManagement>
@@ -103,7 +104,7 @@
         <dependency>
             <groupId>org.eclipse.paho</groupId>
             <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-            <version>1.2.0</version>
+            <version>${paho.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
@@ -222,8 +223,6 @@
             <groupId>com.automatak.dnp3</groupId>
             <artifactId>opendnp3-bindings</artifactId>
             <version>${opendnp3.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/test/resources/es/amplia/oda/connector/dnp3/libraries/opendnp3-bindings.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.automatak.dnp3</groupId>
@@ -231,8 +230,7 @@
             <version>${opendnp3.version}</version>
             <type>so</type>
             <classifier>x86_64</classifier>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/test/resources/es/amplia/oda/connector/dnp3/libraries/libopendnp3java.so</systemPath>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.automatak.dnp3</groupId>
@@ -240,8 +238,7 @@
             <version>${opendnp3.version}</version>
             <type>so</type>
             <classifier>x86_64</classifier>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/test/resources/es/amplia/oda/connector/dnp3/libraries/libasiopal.so</systemPath>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.automatak.dnp3</groupId>
@@ -249,8 +246,7 @@
             <version>${opendnp3.version}</version>
             <type>so</type>
             <classifier>x86_64</classifier>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/test/resources/es/amplia/oda/connector/dnp3/libraries/libasiodnp3.so</systemPath>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.automatak.dnp3</groupId>
@@ -258,8 +254,7 @@
             <version>${opendnp3.version}</version>
             <type>so</type>
             <classifier>x86_64</classifier>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/test/resources/es/amplia/oda/connector/dnp3/libraries/libopenpal.so</systemPath>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.automatak.dnp3</groupId>
@@ -267,8 +262,7 @@
             <version>${opendnp3.version}</version>
             <type>so</type>
             <classifier>x86_64</classifier>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/test/resources/es/amplia/oda/connector/dnp3/libraries/libopendnp3.so</systemPath>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 </project>
