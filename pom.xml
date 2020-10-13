@@ -12,7 +12,7 @@
 
     <properties>
         <cucumber.version>4.2.6</cucumber.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <jackson.version>2.10.0</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <netty.version>4.1.45.Final</netty.version>
