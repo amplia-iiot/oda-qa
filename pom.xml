@@ -15,7 +15,7 @@
         <junit.version>4.12</junit.version>
         <jackson.version>2.10.0</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <netty.version>4.1.45.Final</netty.version>
+        <netty.version>4.1.68.Final</netty.version>
         <opendnp3.version>2.2.0</opendnp3.version>
         <paho.version>1.2.1</paho.version>
     </properties>
